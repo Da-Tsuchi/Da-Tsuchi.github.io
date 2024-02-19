@@ -127,12 +127,12 @@ const Home = ({posts}) => {
 
             <div class="card">
               <div class="skill-desc">
-                <h3 class="skill-desc-title">組み込み</h3>
+                <h3 class="skill-desc-title">組み込みシステム</h3>
                 
                 <img src="images/c.png" alt=""></img>
                 <img src="images/c++.png" alt=""></img>
                 {/* <img src="images/aruduino.png" alt=""></img> */}
-                <p>組み込み開発の自由課題や期末試験で使用</p>
+                <p>組み込み開発の自由課題や試験で使用</p>
                 
               </div>
             </div>
