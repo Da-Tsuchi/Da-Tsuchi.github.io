@@ -4,3 +4,5 @@ module.exports = {
     basePath: '/da-tsuchi.github.io',
     assetPrefix: '/da-tsuchi.github.io/',
   }
+
+module.exports=nextConfig
