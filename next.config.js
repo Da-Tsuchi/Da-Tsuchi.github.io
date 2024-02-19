@@ -5,4 +5,3 @@ module.exports = {
     assetPrefix: '/da-tsuchi.github.io/',
   }
 
-module.exports=nextConfig
