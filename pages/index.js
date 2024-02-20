@@ -54,7 +54,7 @@ const Home = ({posts}) => {
           <div className='text-content'>
             <p>情報系専攻の土田裕登です。</p>
             <p>視覚情報とLLMを融合したVision＆Languageの研究に取り組んでいます。</p>
-            {/* <p><strong>2024.04 - 現在：<a className="link" href="https://gnst.gifu-u.ac.jp/intellscieng/infomatics/" target="_blank" rel="noopener noreferrer">岐阜大学大学院 自然科学技術研究科 知能理工学専攻</a></strong></p> */}
+            <p><strong>（予定）2024.04 -：<a className="link" href="https://gnst.gifu-u.ac.jp/intellscieng/infomatics/" target="_blank" rel="noopener noreferrer">岐阜大学大学院 自然科学技術研究科 知能理工学専攻</a></strong></p>
             <p><strong>2022.10 - 現在：<a className="link" href="http://www.cv.info.gifu-u.ac.jp/index.html" target="_blank" rel="noopener noreferrer">加藤研究室</a> 所属</strong></p>
             <p><strong>2020.04 - 現在：<a className="link" href="https://www.eng.gifu-u.ac.jp/denkidenshi-jyouhou/" target="_blank" rel="noopener noreferrer">岐阜大学 工学部 電気電子・情報工学科</a><a href="https://www.info.gifu-u.ac.jp" className="link" target="_blank" rel="noopener noreferrer"> 情報コース</a></strong></p>
             
@@ -168,9 +168,6 @@ const Home = ({posts}) => {
                 
                 <table className="table table-borderless">
                   <tbody>
-                    <tr>
-                      <th scope="row">普通自動車運転免許</th>
-                    </tr>
                     <tr>
                       <th scope="row">基本情報技術者</th>
                     </tr>
