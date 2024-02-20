@@ -12,7 +12,7 @@ const Header = () => {
     </header>
     <nav id="gnav">
         <ul>
-          <li><Link href="/">HOME</Link></li>
+          <li><Link to="/">HOME</Link></li>
           <li><Link to="Profile" spy={true} smooth={true} duration={500} className="link">PROFILE</Link></li>
           <li><Link to="skill" spy={true} smooth={true} duration={500} className="link">SKILL</Link></li>
           <li><Link to="product" spy={true} smooth={true} duration={500} className="link">PRODUCT</Link></li>

@@ -3,10 +3,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrophy, faAward, faMedal, faStar, faRibbon } from '@fortawesome/free-solid-svg-icons'
 import { faSquareXTwitter, faGithub} from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope ,faDatabase } from '@fortawesome/free-solid-svg-icons';
+import { basePath } from "../next.config" // 追加
+const BASE_PATH = basePath ? basePath : "" // 追加
 import fs from 'fs';
 import matter from 'gray-matter';
 import Link from 'next/link';
-import PostCard from '../components/Postcard';
 
 export const getStaticProps = () => {
   const files = fs.readdirSync('posts');
@@ -53,26 +54,26 @@ const Home = ({posts}) => {
           <div className='text-content'>
             <p>情報系専攻の土田裕登です。</p>
             <p>視覚情報とLLMを融合したVision＆Languageの研究に取り組んでいます。</p>
-            <p><strong>2024.04 - 現在：<a class="link" href="https://gnst.gifu-u.ac.jp/intellscieng/infomatics/" target="_blank" rel="noopener noreferrer">岐阜大学大学院 自然科学技術研究科 知能理工学専攻</a></strong></p>
-            <p><strong>2022.10 - 現在：<a class="link" href="http://www.cv.info.gifu-u.ac.jp/index.html" target="_blank" rel="noopener noreferrer">加藤研究室</a> 所属</strong></p>
-            <p><strong>2020.04 - 2024.03：<a class="link" href="https://www.eng.gifu-u.ac.jp/denkidenshi-jyouhou/" target="_blank" rel="noopener noreferrer">岐阜大学 工学部 電気電子・情報工学科</a><a href="https://www.info.gifu-u.ac.jp" class="link" target="_blank" rel="noopener noreferrer"> 情報コース</a></strong></p>
+            <p><strong>2024.04 - 現在：<a className="link" href="https://gnst.gifu-u.ac.jp/intellscieng/infomatics/" target="_blank" rel="noopener noreferrer">岐阜大学大学院 自然科学技術研究科 知能理工学専攻</a></strong></p>
+            <p><strong>2022.10 - 現在：<a className="link" href="http://www.cv.info.gifu-u.ac.jp/index.html" target="_blank" rel="noopener noreferrer">加藤研究室</a> 所属</strong></p>
+            <p><strong>2020.04 - 2024.03：<a className="link" href="https://www.eng.gifu-u.ac.jp/denkidenshi-jyouhou/" target="_blank" rel="noopener noreferrer">岐阜大学 工学部 電気電子・情報工学科</a><a href="https://www.info.gifu-u.ac.jp" className="link" target="_blank" rel="noopener noreferrer"> 情報コース</a></strong></p>
             
             </div>
           </div>
 
       </section>
 
-      <section class="section" id="skill">
-        <div class="inner">
-          <div class="section-title-block">
-            <h2 class="section-title"><span class="section-title-css">SKILL</span></h2>
-            <p class="section-desc"></p>
+      <section className="section" id="skill">
+        <div className="inner">
+          <div className="section-title-block">
+            <h2 className="section-title"><span className="section-title-css">SKILL</span></h2>
+            <p className="section-desc"></p>
           </div>
-          <div class="card-wrapper">
+          <div className="card-wrapper">
 
-            <div class="card">
-              <div class="skill-desc">
-                <h3 class="skill-desc-title">フロントエンド</h3>
+            <div className="card">
+              <div className="skill-desc">
+                <h3 className="skill-desc-title">フロントエンド</h3>
               
                 <img src="images/html.png" alt=""></img>
                 <img src="images/css.png" alt=""></img>
@@ -83,9 +84,9 @@ const Home = ({posts}) => {
               </div>
             </div>
 
-            <div class="card">
-              <div class="skill-desc">
-                <h3 class="skill-desc-title">バックエンド</h3>
+            <div className="card">
+              <div className="skill-desc">
+                <h3 className="skill-desc-title">バックエンド</h3>
                 <img src="images/python.png" alt=""></img>
                 <img src="images/django.png" alt=""></img>
                 <img src="images/nodejs.png" alt=""></img>
@@ -96,27 +97,27 @@ const Home = ({posts}) => {
             </div>
 
 
-            <div class="card">
-              <div class="skill-desc">
-                <h3 class="skill-desc-title">データベース</h3>
+            <div className="card">
+              <div className="skill-desc">
+                <h3 className="skill-desc-title">データベース</h3>
                 
                 <img src="images/mysql.png" alt=""></img>
                 <p>djangoと組み合わせて使用</p>
               </div>
             </div>
 
-            <div class="card">
-              <div class="skill-desc">
-                <h3 class="skill-desc-title">クラウド</h3>
+            <div className="card">
+              <div className="skill-desc">
+                <h3 className="skill-desc-title">クラウド</h3>
                 
                 <img src="images/aws.png" alt=""></img>
                 <p>SageMakerやAPIGatewayを使用</p>
               </div>
             </div>
 
-            <div class="card">
-              <div class="skill-desc">
-                <h3 class="skill-desc-title">スマホアプリ</h3>
+            <div className="card">
+              <div className="skill-desc">
+                <h3 className="skill-desc-title">スマホアプリ</h3>
                 
                 <img src="images/java.png" alt=""></img>
                 <img src="images/android.png" alt=""></img>
@@ -125,9 +126,9 @@ const Home = ({posts}) => {
               </div>
             </div>
 
-            <div class="card">
-              <div class="skill-desc">
-                <h3 class="skill-desc-title">組み込みシステム</h3>
+            <div className="card">
+              <div className="skill-desc">
+                <h3 className="skill-desc-title">組み込みシステム</h3>
                 
                 <img src="images/c.png" alt=""></img>
                 <img src="images/c++.png" alt=""></img>
@@ -137,9 +138,9 @@ const Home = ({posts}) => {
               </div>
             </div>
 
-            <div class="card">
-              <div class="skill-desc">
-                <h3 class="skill-desc-title">研究ツール</h3>
+            <div className="card">
+              <div className="skill-desc">
+                <h3 className="skill-desc-title">研究ツール</h3>
                 <img src="images/python.png" alt=""></img>
                 <img src="images/pytorch.png" alt=""></img>
                 <img src="images/matlab.png" alt=""></img>
@@ -151,9 +152,9 @@ const Home = ({posts}) => {
               </div>
             </div>
 
-            <div class="card">
-              <div class="skill-desc">
-                <h3 class="skill-desc-title">バージョン管理</h3>
+            <div className="card">
+              <div className="skill-desc">
+                <h3 className="skill-desc-title">バージョン管理</h3>
                 <img src="images/git.png" alt=""></img>
                 <img src="images/github.png" alt=""></img>
                 <p>チーム開発でのソースコード管理で使用</p>
@@ -161,11 +162,11 @@ const Home = ({posts}) => {
               </div>
             </div>
 
-            <div class="card">
-              <div class="skill-desc">
-                <h3 class="skill-desc-title"><i class="fas fa-list-alt"></i>保有資格</h3>
+            <div className="card">
+              <div className="skill-desc">
+                <h3 className="skill-desc-title"><i className="fas fa-list-alt"></i>保有資格</h3>
                 
-                <table class="table table-borderless">
+                <table className="table table-borderless">
                   <tbody>
                     <tr>
                       <th scope="row">普通自動車運転免許</th>
@@ -185,49 +186,49 @@ const Home = ({posts}) => {
         </div>
       </section>
 
-      <section class="section" id="product">
-        <div class="inner">
-          <div class="section-title-block">
-            <h2 class="section-title"><span class="section-title-css">PRODUCT</span></h2>
-            <div class="section-desc"></div>
+      <section className="section" id="product">
+        <div className="inner">
+          <div className="section-title-block">
+            <h2 className="section-title"><span className="section-title-css">PRODUCT</span></h2>
+            <div className="section-desc"></div>
           </div>
-          <div class="card-wrapper my-gallery">
+          <div className="card-wrapper my-gallery">
           
-            <figure class="card">
-            <a href="https://github.com/mkt11/AI_Zunda_web_release" target="_blank" class="card-link">
-                <img class="card-image" src="images/aizunda.png" alt="" />
-                <figcaption class="card-caption">
-                  <p class="card-caption-title">AIずんだWEB</p>
-                  <p class="card-caption-info">AIモデルによる声質変換アプリです</p>
-                  <p class="card-caption-info">新聞等で紹介されました</p>
-                  {/* <p class="card-caption-info">HTML/CSS/Javascript/react/nodejs/python</p> */}
+            <figure className="card">
+            <a href="https://github.com/mkt11/AI_Zunda_web_release" target="_blank" className="card-link">
+                <img className="card-image" src="images/aizunda.png" alt="" />
+                <figcaption className="card-caption">
+                  <p className="card-caption-title">AIずんだWEB</p>
+                  <p className="card-caption-info">AIモデルによる声質変換アプリです</p>
+                  <p className="card-caption-info">新聞等で紹介されました</p>
+                  {/* <p className="card-caption-info">HTML/CSS/Javascript/react/nodejs/python</p> */}
                   </figcaption>
                 </a>
             </figure>
             
     
           
-            <figure class="card">
-            <a href="https://github.com/Da-Tsuchi/ImageProcessingApp" target="_blank" class="card-link">
-              <img class="card-image" src="images/pixellogo.png" alt="" />
-              <figcaption class="card-caption">
-                <p class="card-caption-title">Pixel Craft Studio</p>
-                <p class="card-caption-info">画像処理の技術をアプリ上で実装しました</p>
-                {/* <p class="card-caption-info">投稿とコメント機能を作成しました。</p> */}
-                {/* <p class="card-caption-info">Java/AndroidStudio/OpenCV</p> */}
+            <figure className="card">
+            <a href="https://github.com/Da-Tsuchi/ImageProcessingApp" target="_blank" className="card-link">
+              <img className="card-image" src="images/pixellogo.png" alt="" />
+              <figcaption className="card-caption">
+                <p className="card-caption-title">Pixel Craft Studio</p>
+                <p className="card-caption-info">画像処理の技術をアプリ上で実装しました</p>
+                {/* <p className="card-caption-info">投稿とコメント機能を作成しました。</p> */}
+                {/* <p className="card-caption-info">Java/AndroidStudio/OpenCV</p> */}
               </figcaption>
               </a>
             </figure>
           
             
           
-            <figure class="card">
-            <a href="https://github.com/Da-Tsuchi/Hack" target="_blank" class="card-link">
-            <img class="card-image" src="images/shiftlogo.png" alt="" />
-              <figcaption class="card-caption">
-                <p class="card-caption-title">Shift Mangement</p>
-                <p class="card-caption-info">個別指導のシフトを自動作成するツール</p>
-                {/* <p class="card-caption-info">HTML/CSS/Javascript/python/django/mysql</p> */}
+            <figure className="card">
+            <a href="https://github.com/Da-Tsuchi/Hack" target="_blank" className="card-link">
+            <img className="card-image" src="images/shiftlogo.png" alt="" />
+              <figcaption className="card-caption">
+                <p className="card-caption-title">Shift Mangement</p>
+                <p className="card-caption-info">個別指導のシフトを自動作成するツール</p>
+                {/* <p className="card-caption-info">HTML/CSS/Javascript/python/django/mysql</p> */}
   
               </figcaption>
               </a>
@@ -238,14 +239,14 @@ const Home = ({posts}) => {
         </div>
       </section>
       
-      <section class="section" id="awards">
-      <div class="inner">
-          <div class="section-title-block">
-            <h2 class="section-title"><span class="section-title-css">AWARD</span></h2>
-            <div class="section-desc"></div>
+      <section className="section" id="awards">
+      <div className="inner">
+          <div className="section-title-block">
+            <h2 className="section-title"><span className="section-title-css">AWARD</span></h2>
+            <div className="section-desc"></div>
           </div>
-          <div class="awards-text">
-            <ul class="awards-list">
+          <div className="awards-text">
+            <ul className="awards-list">
             <li><strong>2023</strong></li>
             <li><FontAwesomeIcon icon={faAward} />  岐阜大学 工学部学部長表彰 課外活動（ハッカソン活動）</li>
             <li><FontAwesomeIcon icon={faTrophy} /> 技育CAMPアドバンスvol.4 大賞（チームずんだ）</li>
@@ -259,26 +260,26 @@ const Home = ({posts}) => {
       </div>
       </section>
 
-      <section class="section" id="note">
-        <div class="inner">
-          <div class="section-title-block">
-            <h2 class="section-title"><span class="section-title-css">NOTE</span></h2>
-            <div class="section-desc"></div>
+      <section className="section" id="note">
+        <div className="inner">
+          <div className="section-title-block">
+            <h2 className="section-title"><span className="section-title-css">NOTE</span></h2>
+            <div className="section-desc"></div>
           </div>
 
-          <div class="awards-text">
-            <ul class="awards-list">
+          <div className="awards-text">
+            <ul className="awards-list">
             <li><Link href="/posts">記事一覧へ</Link></li>
             </ul>
             </div>
         </div>
       </section>
 
-      <section class="section" id="paper">
-        <div class="inner">
-          <div class="section-title-block">
-            <h2 class="section-title"><span class="section-title-css">PAPER</span></h2>
-            <div class="section-desc"></div>
+      <section className="section" id="paper">
+        <div className="inner">
+          <div className="section-title-block">
+            <h2 className="section-title"><span className="section-title-css">PAPER</span></h2>
+            <div className="section-desc"></div>
           </div>
         </div>
         <div className='text'>
