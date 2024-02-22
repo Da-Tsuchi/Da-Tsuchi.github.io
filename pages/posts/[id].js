@@ -2,6 +2,8 @@
 import Layout from '../../components/Layout';
 import Header from '../../components/Header';
 import { getAllArticleIds, getArticleData } from '../../lib/articles';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCalendarDays } from '@fortawesome/free-solid-svg-icons';
 
 export async function getStaticPaths() {
   const paths = getAllArticleIds();
@@ -22,39 +24,29 @@ export async function getStaticProps({ params }) {
 
 export default function Post({ articleData }) {
     return (
-      <div>
-        
-        <div className="container">
-          <div className="article">
+      <div id="wrapper">
+        <section className="section" id="note-content">
+          <div className="inner">
+            <div className="section-title-block">
             <div className="article-image-wrapper">
               <img className="article-image" src={articleData.image} alt={articleData.title} />
             </div>
-            <h1>{articleData.title}</h1>
-            <div>{articleData.date}</div>
-            <div dangerouslySetInnerHTML={{ __html: articleData.contentHtml }} />
+            <h2 className="section-title"><span className="section-title-css">{articleData.title}</span></h2>
+            <h3 className="card-caption-date"><FontAwesomeIcon icon={faCalendarDays} /> {articleData.date}</h3>
+            </div>
+            <div className="article-content" dangerouslySetInnerHTML={{ __html: articleData.contentHtml }} />
           </div>
-        </div>
-        <style jsx>{`
-        .article-image-wrapper {
-          width: 100%; // コンテナの幅に合わせる
-          height: 400px; // 画像の高さを統一
-          position: relative; // 画像を絶対位置で配置するための基点
-          overflow: hidden; // はみ出した部分は隠す
-          display: flex; // Flexboxを利用して中央揃え
-          justify-content: center; // 水平方向の中央揃え
-          align-items: center; // 垂直方向の中央揃え
-        }
-        .article-image {
-          max-width: 100%;
-          max-height: 100%;
-          object-fit: contain; // 画像のアスペクト比を保ちながらコンテナに収める
-        }
-        .article {
-          margin-top: 100px;
-          text-align: left;
-          font-size: 20px;
-        }
-      `}</style>
+        
+          <div className="article">
+            
+            
+          </div>
+        
+        
+
+      </section>
       </div>
+          
+
     );
   }

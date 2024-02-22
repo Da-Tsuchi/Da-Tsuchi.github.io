@@ -3,33 +3,47 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrophy, faAward, faMedal, faStar, faRibbon } from '@fortawesome/free-solid-svg-icons'
 import { faSquareXTwitter, faGithub} from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope ,faDatabase } from '@fortawesome/free-solid-svg-icons';
+import { faCalendarDays } from '@fortawesome/free-solid-svg-icons';
 import { basePath } from "../next.config" // 追加
-const BASE_PATH = basePath ? basePath : "" // 追加
-import fs from 'fs';
-import matter from 'gray-matter';
+import { getSortedArticlesData } from '../lib/articles';
 import Link from 'next/link';
 
-export const getStaticProps = () => {
-  const files = fs.readdirSync('posts');
-  const posts = files.map((fileName) => {
-    const slug = fileName.replace(/\.md$/, '');
-    const fileContent = fs.readFileSync(`posts/${fileName}`, 'utf-8');
-    const { data } = matter(fileContent);
-    return {
-      frontMatter: data,
-      slug,
-    };
-  });
 
+// export const getStaticProps = () => {
+//   const files = fs.readdirSync('posts');
+//   const posts = files.map((fileName) => {
+//     const slug = fileName.replace(/\.md$/, '');
+//     const fileContent = fs.readFileSync(`posts/${fileName}`, 'utf-8');
+//     const { data } = matter(fileContent);
+//     return {
+//       frontMatter: data,
+//       slug,
+//     };
+//   });
+
+//   return {
+//     props: {
+//       posts,
+//     },
+//   };
+// };
+
+export async function getStaticProps() {
+  const allArticlesData = getSortedArticlesData();
   return {
     props: {
-      posts,
-    },
+      allArticlesData
+    }
   };
-};
+}
 
-const Home = ({posts}) => {
-  console.log(posts);
+const Home = ({allArticlesData}) => {
+  // console.log(posts);
+  // 選択されたジャンルに基づいて記事をフィルタリング
+
+  // 日付でソートして最新の2つの記事を取得
+  const latestTwoArticles = allArticlesData.sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 2);
+  
   return (
     <div id="wrapper">
       <section className="section" id="Profile">
@@ -223,7 +237,7 @@ const Home = ({posts}) => {
             <a href="https://github.com/Da-Tsuchi/Hack" target="_blank" className="card-link">
             <img className="card-image" src="images/shiftlogo.png" alt="" />
               <figcaption className="card-caption">
-                <p className="card-caption-title">Shift Mangement</p>
+                <p className="card-caption-title">Shift Management</p>
                 <p className="card-caption-info">個別指導のシフトを自動作成するツール</p>
                 {/* <p className="card-caption-info">HTML/CSS/Javascript/python/django/mysql</p> */}
   
@@ -264,9 +278,23 @@ const Home = ({posts}) => {
             <div className="section-desc"></div>
           </div>
 
+          <div className="card-wrapper my-gallery">
+          {latestTwoArticles.map(article => (
+            <a key={article.id} className="card-link" href={`/posts/${article.id}`}>
+              <figure className="card">
+                <img className="card-image" src={article.image} alt={article.title} />
+                <div className="card-content">
+                  <p className="card-caption-title">{article.title}</p>
+                  <p className="card-caption-date"><FontAwesomeIcon icon={faCalendarDays} /> {article.date}</p>
+                  <p className="card-caption-info">{article.abst}</p>
+                </div>
+              </figure>
+            </a>
+          ))}
+          </div>
           <div className="awards-text">
             <ul className="awards-list">
-            <li><Link href="/posts">記事一覧へ</Link></li>
+            <li><Link href="/posts">もっと見る</Link></li>
             </ul>
             </div>
         </div>
