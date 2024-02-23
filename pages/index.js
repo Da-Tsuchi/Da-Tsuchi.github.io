@@ -258,8 +258,10 @@ const Home = ({allArticlesData}) => {
           </div>
           <div className="awards-text">
             <ul className="awards-list">
+            <li><strong>2024</strong></li>
+            <li><FontAwesomeIcon icon={faAward} />  岐阜大学 工学部学部長表彰 課外活動</li>
             <li><strong>2023</strong></li>
-            <li><FontAwesomeIcon icon={faAward} />  岐阜大学 工学部学部長表彰 課外活動（ハッカソン活動）</li>
+            <li><FontAwesomeIcon icon={faAward} />  岐阜大学 工学部学部長表彰 課外活動</li>
             <li><FontAwesomeIcon icon={faTrophy} /> 技育CAMPアドバンスvol.4 大賞（チームずんだ）</li>
             <li><FontAwesomeIcon icon={faTrophy} /> 技育CAMPマンスリーハッカソンvol.11 最優秀賞（チームずんだ）</li>
             <li><strong>2022</strong></li>
@@ -300,7 +302,7 @@ const Home = ({allArticlesData}) => {
         </div>
       </section>
 
-      <section className="section" id="paper">
+      {/* <section className="section" id="paper">
         <div className="inner">
           <div className="section-title-block">
             <h2 className="section-title"><span className="section-title-css">PAPER</span></h2>
@@ -319,7 +321,7 @@ const Home = ({allArticlesData}) => {
           </div>
           </div>
         
-      </section>
+      </section> */}
 
     </div>
     

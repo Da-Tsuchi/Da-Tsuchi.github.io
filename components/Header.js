@@ -1,6 +1,7 @@
-// import Link from 'next/link';
+import Link from 'next/link';
 import React, { useEffect } from 'react';
-import { Link } from 'react-scroll';
+// import { Link } from 'react-scroll';
+import { Link as ScrollLink } from 'react-scroll';
 
 const Header = () => {
   return (
@@ -12,13 +13,13 @@ const Header = () => {
     </header>
     <nav id="gnav">
         <ul>
-          <li><Link to="/">HOME</Link></li>
-          <li><Link to="Profile" spy={true} smooth={true} duration={500} className="link">PROFILE</Link></li>
-          <li><Link to="skill" spy={true} smooth={true} duration={500} className="link">SKILL</Link></li>
-          <li><Link to="product" spy={true} smooth={true} duration={500} className="link">PRODUCT</Link></li>
-          <li><Link to="awards" spy={true} smooth={true} duration={500} className="link">AWARD</Link></li>
-          <li><Link to="note" spy={true} smooth={true} duration={500} className="link">NOTE</Link></li>
-          <li><Link to="paper" spy={true} smooth={true} duration={500} className="link">PAPER</Link></li>
+          <li><Link href="/">HOME</Link></li>
+          <li><ScrollLink to="Profile" spy={true} smooth={true} duration={500} className="link">PROFILE</ScrollLink></li>
+          <li><ScrollLink to="skill" spy={true} smooth={true} duration={500} className="link">SKILL</ScrollLink></li>
+          <li><ScrollLink to="product" spy={true} smooth={true} duration={500} className="link">PRODUCT</ScrollLink></li>
+          <li><ScrollLink to="awards" spy={true} smooth={true} duration={500} className="link">AWARD</ScrollLink></li>
+          <li><ScrollLink to="note" spy={true} smooth={true} duration={500} className="link">NOTE</ScrollLink></li>
+          {/* <li><ScrollLink to="paper" spy={true} smooth={true} duration={500} className="link">PAPER</ScrollLink></li> */}
         </ul>
       </nav>
     </div>
