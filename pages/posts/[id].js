@@ -31,13 +31,14 @@ export default function Post({ articleData }) {
             <div className="article-image-wrapper">
               <img className="article-image" src={articleData.image} alt={articleData.title} />
             </div>
+            <div className="article">
             <h2 className="section-title"><span className="section-title-css">{articleData.title}</span></h2>
             <h3 className="card-caption-date"><FontAwesomeIcon icon={faCalendarDays} /> {articleData.date}</h3>
             </div>
             <div className="article-content" dangerouslySetInnerHTML={{ __html: articleData.contentHtml }} />
-          </div>
+            </div>
         
-          <div className="article">
+          
             
             
           </div>

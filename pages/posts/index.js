@@ -38,7 +38,7 @@ const Articles = ({ allArticlesData }) => {
     });
 
     // 日付でソート
-    filteredArticles.sort((a, b) => new Date(b.date) - new Date(a.date));
+    allArticlesData.sort((a, b) => new Date(b.date) - new Date(a.date));
         
     return (
     <div id="wrapper">
@@ -50,7 +50,7 @@ const Articles = ({ allArticlesData }) => {
           
           <div className="card-wrapper my-gallery">
           
-            {filteredArticles.map(article => (
+            {allArticlesData.map(article => (
               <a key={article.id} className="card-link" href={`/posts/${article.id}`}>
                 <figure className="card">
                   

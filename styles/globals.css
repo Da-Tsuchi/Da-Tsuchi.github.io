@@ -402,9 +402,14 @@ ul, li {
   object-fit: fill;
 }
 
+#note-content .article{
+  text-align: center;
+}
 #note-content .article-content {
+  text-align: left;
   font-size: 20px; 
 }
+
 
 
 /*--------------------------------
@@ -849,6 +854,64 @@ ul, li {
     -webkit-border-radius: 50%;
     object-fit: cover; /* ADD */
  }
+
+ #note .section-title-block {
+  padding-top: 50px;
+  
+}
+
+#note .card {
+  display: flex; /* Flexboxレイアウトを使用 */
+  flex-direction: column; /* 子要素を縦並びに変更 */
+  align-items: flex-start; /* アイテムを上揃えにする */
+  border: 5px solid #ddd; /* カードに枠線を追加 */
+  /* padding: 15px; 内部の余白 */
+  margin-bottom: 20px; /* カード間の間隔 */
+  transition: transform 0.2s; /* ホバー時のアニメーション効果 */
+}
+
+#note .card:hover {
+  transform: scale(1.05); /* ホバー時に少し大きくする */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* ホバー時に影をつける */
+}
+
+#note .card-image {
+  width: 50%; /* 画像の幅をカードの幅に合わせて100%に設定 */
+  height: 200px; 
+  /* 画像の高さを自動調整してアスペクト比を保持 */
+  display: block;
+  margin: 0 auto;
+  object-fit: fill; /* 画像をコンテナに合わせてトリミング */
+}
+
+#note .card-content {
+  flex: 1; /* 残りのスペースを全て使用 */
+  padding-left: 0px;
+}
+
+#note .card-caption-title,
+#note .card-caption-info,
+#note .card-caption-url {
+  margin: 0; /* 余分なマージンを削除 */
+}
+
+#note .card-caption-title {
+  /* text-align: center; */
+  font-size: 30px;
+  font-weight: bold;
+}
+#note .card-caption-date {
+  font-size: 20px;
+}
+#note .card-caption-info {
+  font-size: 20px;
+}
+
+#note .card-caption-url {
+  font-size: 10px;
+}
+
+
 }
 
 .profile img {
@@ -872,6 +935,9 @@ ul, li {
 .table{
   text-align: center;
 }
+
+
+
 
 @media only screen and (max-width: 540px) {
   #gnav li {
