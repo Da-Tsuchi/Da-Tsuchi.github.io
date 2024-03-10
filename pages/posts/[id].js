@@ -4,6 +4,8 @@ import Header from '../../components/Header';
 import { getAllArticleIds, getArticleData } from '../../lib/articles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendarDays } from '@fortawesome/free-solid-svg-icons';
+import React from 'react';
+import ReactMarkdown from 'react-markdown';
 
 export async function getStaticPaths() {
   const paths = getAllArticleIds();
@@ -35,19 +37,12 @@ export default function Post({ articleData }) {
             <h2 className="section-title"><span className="section-title-css">{articleData.title}</span></h2>
             <h3 className="card-caption-date"><FontAwesomeIcon icon={faCalendarDays} /> {articleData.date}</h3>
             </div>
-            <div className="article-content" dangerouslySetInnerHTML={{ __html: articleData.contentHtml }} />
+            <div className="article-content">
+              <ReactMarkdown>{articleData.contentMarkdown}</ReactMarkdown>
             </div>
-        
-          
-            
-            
+            </div>  
           </div>
-        
-        
-
       </section>
       </div>
-          
-
     );
   }

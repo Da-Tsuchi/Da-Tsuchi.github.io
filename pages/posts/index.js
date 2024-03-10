@@ -60,8 +60,6 @@ const Articles = ({ allArticlesData }) => {
                     
                     <p className="card-caption-date"><FontAwesomeIcon icon={faCalendarDays} />  {article.date}</p>
                     <p className="card-caption-info">{article.abst}</p>
-                    
-                    {/* <p className="card-caption-info">{article.genre}</p> */}
                   </div>
                   
                 </figure>

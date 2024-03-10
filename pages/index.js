@@ -1,32 +1,14 @@
-// components/Awards.js
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrophy, faAward, faMedal, faStar, faRibbon } from '@fortawesome/free-solid-svg-icons'
 import { faSquareXTwitter, faGithub} from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope ,faDatabase } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope ,faDatabase,faCloud,faNetworkWired,faToolbox,faMagnifyingGlass,faImage,faGears } from '@fortawesome/free-solid-svg-icons';
 import { faCalendarDays } from '@fortawesome/free-solid-svg-icons';
 import { basePath } from "../next.config" // 追加
 import { getSortedArticlesData } from '../lib/articles';
 import Link from 'next/link';
+import TypingAnimation from '../components/TypingAnimation';
 
-
-// export const getStaticProps = () => {
-//   const files = fs.readdirSync('posts');
-//   const posts = files.map((fileName) => {
-//     const slug = fileName.replace(/\.md$/, '');
-//     const fileContent = fs.readFileSync(`posts/${fileName}`, 'utf-8');
-//     const { data } = matter(fileContent);
-//     return {
-//       frontMatter: data,
-//       slug,
-//     };
-//   });
-
-//   return {
-//     props: {
-//       posts,
-//     },
-//   };
-// };
+import React, { useState, useEffect } from 'react';
 
 export async function getStaticProps() {
   const allArticlesData = getSortedArticlesData();
@@ -43,16 +25,30 @@ const Home = ({allArticlesData}) => {
 
   // 日付でソートして最新の2つの記事を取得
   const latestTwoArticles = allArticlesData.sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 2);
-  
+  const [animationStarted, setAnimationStarted] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setAnimationStarted(true);
+    }, 1000 + 1000); // 文字の表示が終わる時間 + 1秒の遅延
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
+ <div>
+    <div className="typing-animation-container">
+        <TypingAnimation />
+      </div>
     <div id="wrapper">
+      
       <section className="section" id="Profile">
         <div className="inner">
-          <div className="section-title-block">
-            <h2 className="section-title"><span className="section-title-css">PROFILE</span></h2>
+          <div className="section-title-block" data-aos="fade-up">
+            <h2 className="section-title">PROFILE</h2>
           </div>
         </div>
-        <div className="text">
+        <div className="text" data-aos="fade-up">
         <img src="images/me.jpg" alt=""></img>
         <div className="content-icon">
             <a href="https://twitter.com/home" target="_blank" rel="noopener noreferrer">
@@ -68,9 +64,9 @@ const Home = ({allArticlesData}) => {
           <div className='text-content'>
             <p>情報系専攻の土田裕登です。</p>
             <p>視覚情報とLLMを融合したVision＆Languageの研究に取り組んでいます。</p>
-            <p><strong>（予定）2024.04 -：<a className="link" href="https://gnst.gifu-u.ac.jp/intellscieng/infomatics/" target="_blank" rel="noopener noreferrer">岐阜大学大学院 自然科学技術研究科 知能理工学専攻</a></strong></p>
+            <p><strong>2024.04 - 現在：<a className="link" href="https://gnst.gifu-u.ac.jp/intellscieng/infomatics/" target="_blank" rel="noopener noreferrer">岐阜大学大学院 自然科学技術研究科 知能理工学専攻</a></strong></p>
             <p><strong>2022.10 - 現在：<a className="link" href="http://www.cv.info.gifu-u.ac.jp/index.html" target="_blank" rel="noopener noreferrer">加藤研究室</a> 所属</strong></p>
-            <p><strong>2020.04 - 現在：<a className="link" href="https://www.eng.gifu-u.ac.jp/denkidenshi-jyouhou/" target="_blank" rel="noopener noreferrer">岐阜大学 工学部 電気電子・情報工学科</a><a href="https://www.info.gifu-u.ac.jp" className="link" target="_blank" rel="noopener noreferrer"> 情報コース</a></strong></p>
+            <p><strong>2020.04 - 2024.03：<a className="link" href="https://www.eng.gifu-u.ac.jp/denkidenshi-jyouhou/" target="_blank" rel="noopener noreferrer">岐阜大学 工学部 電気電子・情報工学科</a><a href="https://www.info.gifu-u.ac.jp" className="link" target="_blank" rel="noopener noreferrer"> 情報コース</a></strong></p>
             
             </div>
           </div>
@@ -79,131 +75,370 @@ const Home = ({allArticlesData}) => {
 
       <section className="section" id="skill">
         <div className="inner">
-          <div className="section-title-block">
-            <h2 className="section-title"><span className="section-title-css">SKILL</span></h2>
+          <div className="section-title-block" data-aos="fade-up">
+            <h2 className="section-title">SKILL</h2>
             <p className="section-desc"></p>
           </div>
-          <div className="card-wrapper">
-
-            <div className="card">
-              <div className="skill-desc">
-                <h3 className="skill-desc-title">フロントエンド</h3>
-              
-                <img src="images/html.png" alt=""></img>
-                <img src="images/css.png" alt=""></img>
-                <img src="images/js.png" alt=""></img>
-                <img src="images/react.png" alt=""></img>
-                <p>本サイトや各種プロダクトで使用</p>
-                
-              </div>
-            </div>
-
-            <div className="card">
-              <div className="skill-desc">
-                <h3 className="skill-desc-title">バックエンド</h3>
-                <img src="images/python.png" alt=""></img>
-                <img src="images/django.png" alt=""></img>
-                <img src="images/nodejs.png" alt=""></img>
-                <img src="images/nextjs.png" alt=""></img>
-                <p>本サイトや各種プロダクトで使用</p>
-                
-              </div>
-            </div>
-
-
-            <div className="card">
-              <div className="skill-desc">
-                <h3 className="skill-desc-title">データベース</h3>
-                
-                <img src="images/mysql.png" alt=""></img>
-                <p>djangoと組み合わせて使用</p>
-              </div>
-            </div>
-
-            <div className="card">
-              <div className="skill-desc">
-                <h3 className="skill-desc-title">クラウド</h3>
-                
-                <img src="images/aws.png" alt=""></img>
-                <p>SageMakerやAPIGatewayを使用</p>
-              </div>
-            </div>
-
-            <div className="card">
-              <div className="skill-desc">
-                <h3 className="skill-desc-title">スマホアプリ</h3>
-                
-                <img src="images/java.png" alt=""></img>
-                <img src="images/android.png" alt=""></img>
-                <p>Androidアプリの開発に使用</p>
-                {/* <img src="images/.png" alt=""></img> */}
-              </div>
-            </div>
-
-            <div className="card">
-              <div className="skill-desc">
-                <h3 className="skill-desc-title">組み込みシステム</h3>
-                
-                <img src="images/c.png" alt=""></img>
-                <img src="images/c++.png" alt=""></img>
-                {/* <img src="images/aruduino.png" alt=""></img> */}
-                <p>組み込み開発の自由課題や試験で使用</p>
-                
-              </div>
-            </div>
-
-            <div className="card">
-              <div className="skill-desc">
-                <h3 className="skill-desc-title">研究ツール</h3>
-                <img src="images/python.png" alt=""></img>
-                <img src="images/pytorch.png" alt=""></img>
-                <img src="images/matlab.png" alt=""></img>
-                <img src="images/pandas.png" alt=""></img>
-                
-                
-                <p>深層学習やデータ解析で使用</p>
-                {/* <img src="images/.png" alt=""></img> */}
-              </div>
-            </div>
-
-            <div className="card">
-              <div className="skill-desc">
-                <h3 className="skill-desc-title">バージョン管理</h3>
-                <img src="images/git.png" alt=""></img>
-                <img src="images/github.png" alt=""></img>
-                <p>チーム開発でのソースコード管理で使用</p>
-                
-              </div>
-            </div>
-
-            <div className="card">
-              <div className="skill-desc">
-                <h3 className="skill-desc-title"><i className="fas fa-list-alt"></i>保有資格</h3>
-                
-                <table className="table table-borderless">
-                  <tbody>
-                    <tr>
-                      <th scope="row">基本情報技術者</th>
-                    </tr>
-                    <tr>
-                      <th scope="row">応用情報技術者</th>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-
+          </div>
+          
+          <div className="fade-up" data-aos="fade-up">
+          <div className="inner">
+            <div className="section-title-area">
+            <h3 className="skill-section-title"><FontAwesomeIcon icon={faImage}/> FRONT-END</h3>
             </div>
           </div>
-        </div>
+          <div className="inner">
+            <div className="card-wrapper">
+              <div className="card">
+                <div className='skill-icon'>
+                  <img src="images/html.png" alt=""></img>
+                </div>
+                <div className="skill-desc">
+                  <h3 className="skill-desc-title">HTML</h3>
+                  <p>各アプリ・サイトのUI部分の実装に使用しています。</p>
+                  
+                </div>
+              </div>
+              
+              <div className="card">
+                <div className="skill-icon">
+                  <img src="images/css.png" alt=""></img>
+                  </div>
+                <div className="skill-desc">
+                  <h3 className="skill-desc-title">CSS</h3>
+                  <p>各アプリ・サイトのUI部分の実装に使用しています。</p>
+                </div>
+              </div>
+              <div className="card">
+                <div className="skill-icon">
+                  <img src="images/js.png" alt=""></img>
+                  </div>
+                <div className="skill-desc">
+                  <h3 className="skill-desc-title">Javascript</h3>
+                  <p>各アプリ・サイトのUI部分の実装に使用しています。</p>
+                </div>
+              </div>
+              <div className="card">
+                <div className="skill-icon">
+                  <img src="images/react.png" alt=""></img>
+                  </div>
+                <div className="skill-desc">
+                  <h3 className="skill-desc-title">React</h3>
+                  <p>AIずんだWEBや本ホームページのUI実装に使用しています。</p>
+                </div>
+              </div>
+              <div className="card">
+                <div className="skill-icon">
+                  <img src="images/nextjs.png" alt=""></img>
+                  </div>
+                <div className="skill-desc">
+                  <h3 className="skill-desc-title">Next.js</h3>
+                  <p>本ホームページのフレームワークとして使用しています。</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+          <div className="fade-up" data-aos="fade-up">
+          <div className="inner">
+            <div className="section-title-area">
+            <h3 className="skill-section-title"><FontAwesomeIcon icon={faGears}/> BACK-END</h3>
+            </div>
+          </div>
+          <div className="inner">
+            <div className="card-wrapper">
+              <div className="card">
+                <div className='skill-icon'>
+                  <img src="images/c.png" alt=""></img>
+                </div>
+                <div className="skill-desc">
+                  <h3 className="skill-desc-title">C</h3>
+                  <p>大学の講義で学習しました。PIC16F88による電子ルーレットの制作や音声制御の車を実装する際に使用しました。</p>
+                  
+                </div>
+              </div>
+              <div className="card">
+                <div className='skill-icon'>
+                  <img src="images/c++.png" alt=""></img>
+                </div>
+                <div className="skill-desc">
+                  <h3 className="skill-desc-title">C++</h3>
+                  <p>大学の講義で学習しました。ポインタと構造体を用いた連結リストの作成に使用しました。</p>
+                  
+                </div>
+              </div>
+              <div className="card">
+                <div className='skill-icon'>
+                  <img src="images/java.png" alt=""></img>
+                </div>
+                <div className="skill-desc">
+                  <h3 className="skill-desc-title">Java</h3>
+                  <p>大学の講義で学習しました。ペイントアプリやPixel Craft Studioの開発に使用しています。</p>
+                  
+                </div>
+              </div>
+              <div className="card">
+                <div className='skill-icon'>
+                  <img src="images/android.png" alt=""></img>
+                </div>
+                <div className="skill-desc">
+                  <h3 className="skill-desc-title">Android</h3>
+                  <p>Pixel Craft Studioにおいて、IDEにAndorid Studio、言語にJavaを使用し開発しました。</p>
+                </div>
+              </div>
+              <div className="card">
+                <div className='skill-icon'>
+                  <img src="images/python.png" alt=""></img>
+                </div>
+                <div className="skill-desc">
+                  <h3 className="skill-desc-title">Python</h3>
+                  <p>研究や制作物のバックエンドとして最も多く使用しています。</p>
+                  
+                </div>
+              </div>
+              <div className="card">
+                <div className='skill-icon'>
+                  <img src="images/django.png" alt=""></img>
+                </div>
+                <div className="skill-desc">
+                  <h3 className="skill-desc-title">django</h3>
+                  <p>ShiftMangementでサイトを動かすフレームワークとして使用しています。</p>
+                  
+                </div>
+              </div>
+              <div className="card">
+                <div className='skill-icon'>
+                  <img src="images/nodejs.png" alt=""></img>
+                </div>
+                <div className="skill-desc">
+                  <h3 className="skill-desc-title">Node.js</h3>
+                  <p>AIずんだWEBや本ホームページを動かすために使用しています。</p>
+                  
+                </div>
+              </div>
+              </div>
+          </div>
+          </div>
+
+          <div className="fade-up" data-aos="fade-up">
+          <div className="inner">
+            <div className="section-title-area">
+            <h3 className="skill-section-title"><FontAwesomeIcon icon={faDatabase}/> DB</h3>
+            </div>
+          </div>
+          <div className="inner">
+            <div className="card-wrapper">
+              <div className="card">
+                <div className='skill-icon'>
+                  <img src="images/mysql.png" alt=""></img>
+                </div>
+                <div className="skill-desc">
+                  <h3 className="skill-desc-title">MySQL</h3>
+                  <p>ShiftMangementで講師や生徒の情報を登録するために使用しました。</p>
+                </div>
+              </div>
+              </div>
+          </div>
+          
+          <div className="inner">
+            <div className="section-title-area">
+            <h3 className="skill-section-title"><FontAwesomeIcon icon={faCloud}/> CLOUD</h3>
+            </div>
+          </div>
+          <div className="inner">
+            <div className="card-wrapper">
+              <div className="card">
+                <div className='skill-icon'>
+                  <img src="images/aws.png" alt=""></img>
+                </div>
+                <div className="skill-desc">
+                  <h3 className="skill-desc-title">AWS</h3>
+                  <p>AIずんだWEBのAIモデルを動かすSageMakerとAPIGatewayを立ち上げるために使用しました。</p>
+                  
+                </div>
+              </div>
+              </div>
+          </div>
+          </div>
+
+          <div className="fade-up" data-aos="fade-up">
+          <div className="inner">
+            <div className="section-title-area">
+            <h3 className="skill-section-title"><FontAwesomeIcon icon={faMagnifyingGlass}/> RESEARCH TOOL</h3>
+            </div>
+          </div>
+          <div className="inner">
+            <div className="card-wrapper">
+              <div className="card">
+                <div className='skill-icon'>
+                  <img src="images/python.png" alt=""></img>
+                </div>
+                <div className="skill-desc">
+                  <h3 className="skill-desc-title">Python</h3>
+                  <p></p>
+                  
+                </div>
+              </div>
+              <div className="card">
+                <div className='skill-icon'>
+                  <img src="images/pytorch.png" alt=""></img>
+                </div>
+                <div className="skill-desc">
+                  <h3 className="skill-desc-title">pytorch</h3>
+                  <p>Deep Learningの実装で使用します。</p>
+                  
+                </div>
+              </div>
+              <div className="card">
+                <div className='skill-icon'>
+                  <img src="images/jupyter.png" alt=""></img>
+                </div>
+                <div className="skill-desc">
+                  <h3 className="skill-desc-title">Jupyter Notebook</h3>
+                  <p>対話型のPython実行環境であり、画像やグラフの可視化に使用しています。</p>
+                  
+                </div>
+              </div>
+              <div className="card">
+                <div className='skill-icon'>
+                  <img src="images/matplot.png" alt=""></img>
+                </div>
+                <div className="skill-desc">
+                  <h3 className="skill-desc-title">Matplotlib</h3>
+                  <p>グラフ作成時に使用しています。</p>
+                  
+                </div>
+              </div>
+              <div className="card">
+                <div className='skill-icon'>
+                  <img src="images/pandas.png" alt=""></img>
+                </div>
+                <div className="skill-desc">
+                  <h3 className="skill-desc-title">pandas</h3>
+                  <p>csvデータを解析、整理するために使用しています。</p>
+                  
+                </div>
+              </div>
+              </div>
+          </div>
+          </div>
+
+          <div className="fade-up" data-aos="fade-up">
+          <div className="inner">
+            <div className="section-title-area">
+            <h3 className="skill-section-title"><FontAwesomeIcon icon={faNetworkWired}/> INFRA</h3>
+            </div>
+          </div>
+          <div className="inner">
+            <div className="card-wrapper">
+              <div className="card">
+                <div className='skill-icon'>
+                  <img src="images/docker.png" alt=""></img>
+                </div>
+                <div className="skill-desc">
+                  <h3 className="skill-desc-title">Docker</h3>
+                  <p>GPUを動かすときの仮想環境として、普段から使用しています。</p>
+                  
+                </div>
+              </div>
+              <div className="card">
+                <div className='skill-icon'>
+                  <img src="images/slurm.png" alt=""></img>
+                </div>
+                <div className="skill-desc">
+                  <h3 className="skill-desc-title">Slurm</h3>
+                  <p>ジョブ管理ツールです。研究室で導入されたため、使いこなすために勉強中です。</p>
+                  
+                </div>
+              </div>
+              <div className="card">
+                <div className='skill-icon'>
+                  <img src="images/singularity.png" alt=""></img>
+                </div>
+                <div className="skill-desc">
+                  <h3 className="skill-desc-title">Singularity</h3>
+                  <p>スパコンなどで利用される仮想環境ツールです。管理者権限がなくても動かせるため便利です。</p>
+                  
+                </div>
+              </div>
+              </div>
+          </div>
+          </div>
+
+          <div className="fade-up" data-aos="fade-up">
+          <div className="inner">
+            <div className="section-title-area">
+            <h3 className="skill-section-title"><FontAwesomeIcon icon={faToolbox}/> TOOL</h3>
+            </div>
+          </div>
+          <div className="inner">
+            <div className="card-wrapper">
+              <div className="card">
+                <div className='skill-icon'>
+                  <img src="images/git.png" alt=""></img>
+                </div>
+                <div className="skill-desc">
+                  <h3 className="skill-desc-title">Git</h3>
+                  <p>チーム開発時のバージョン管理に使用しています。</p>
+                  
+                </div>
+              </div>
+              <div className="card">
+                <div className='skill-icon'>
+                  <img src="images/github.png" alt=""></img>
+                </div>
+                <div className="skill-desc">
+                  <h3 className="skill-desc-title">GitHub</h3>
+                  <p>チーム開発時のバージョン管理、個人データのバックアップ先、本ホームページのデプロイなどで使用しています。</p>
+                  
+                </div>
+              </div>
+              
+              </div>
+          </div>
+
+          <div className="inner">
+            <div className="section-title-area">
+            <h3 className="skill-section-title">OTHERS</h3>
+            </div>
+          </div>
+          <div className="inner">
+            <div className="card-wrapper">
+              <div className="card">
+                <div className='skill-icon'>
+                  <img src="images/ipa.png" alt=""></img>
+                </div>
+                <div className="skill-desc">
+                  <h3 className="skill-desc-title">基本情報技術者</h3>
+                  <p></p>
+                  
+                </div>
+              </div>
+              <div className="card">
+                <div className='skill-icon'>
+                  <img src="images/ipa.png" alt=""></img>
+                </div>
+                <div className="skill-desc">
+                  <h3 className="skill-desc-title">応用情報技術者</h3>
+                  {/* <p>本サイトや各種プロダクトで使用</p> */}
+                  
+                </div>
+              </div>
+              
+              </div>
+              </div>
+          </div>
+          
+
       </section>
 
       <section className="section" id="product">
         <div className="inner">
-          <div className="section-title-block">
-            <h2 className="section-title"><span className="section-title-css">PRODUCT</span></h2>
-            <div className="section-desc"></div>
+          <div className="section-title-block" data-aos="fade-up">
+            <h2 className="section-title">PRODUCT</h2>
+            <div className="section-desc">制作物の一覧です。クリックするとリポジトリに飛べます。</div>
           </div>
-          <div className="card-wrapper my-gallery">
+          <div className="card-wrapper my-gallery" data-aos="fade-up">
           
             <figure className="card">
             <a href="https://github.com/mkt11/AI_Zunda_web_release" target="_blank" className="card-link">
@@ -252,13 +487,14 @@ const Home = ({allArticlesData}) => {
       
       <section className="section" id="awards">
       <div className="inner">
-          <div className="section-title-block">
-            <h2 className="section-title"><span className="section-title-css">AWARD</span></h2>
+          <div className="section-title-block" data-aos="fade-up">
+            <h2 className="section-title">AWARD</h2>
             <div className="section-desc"></div>
           </div>
-          <div className="awards-text">
+          <div className="awards-text" data-aos="fade-up">
             <ul className="awards-list">
             <li><strong>2024</strong></li>
+            {/* <li><FontAwesomeIcon icon={faTrophy} /> 技育博 企業賞（株式会社DeNA賞）</li> */}
             <li><FontAwesomeIcon icon={faAward} />  岐阜大学 工学部学部長表彰 課外活動</li>
             <li><strong>2023</strong></li>
             <li><FontAwesomeIcon icon={faAward} />  岐阜大学 工学部学部長表彰 課外活動</li>
@@ -269,18 +505,18 @@ const Home = ({allArticlesData}) => {
             <li><strong>2021</strong></li>
             <li><FontAwesomeIcon icon={faAward} />  岐阜大学 工学部学部長表彰 学業成績</li>
           </ul>
-        </div>
+          </div>
       </div>
       </section>
 
       <section className="section" id="note">
         <div className="inner">
-          <div className="section-title-block">
-            <h2 className="section-title"><span className="section-title-css">NOTE</span></h2>
+          <div className="section-title-block" data-aos="fade-up">
+            <h2 className="section-title">NOTE</h2>
             <div className="section-desc"></div>
           </div>
 
-          <div className="card-wrapper my-gallery">
+          <div className="card-wrapper my-gallery" data-aos="fade-up">
           {latestTwoArticles.map(article => (
             <a key={article.id} className="card-link" href={`/posts/${article.id}`}>
               <figure className="card">
@@ -301,29 +537,9 @@ const Home = ({allArticlesData}) => {
             </div>
         </div>
       </section>
-
-      {/* <section className="section" id="paper">
-        <div className="inner">
-          <div className="section-title-block">
-            <h2 className="section-title"><span className="section-title-css">PAPER</span></h2>
-            <div className="section-desc"></div>
-          </div>
-        </div>
-        <div className='text'>
-          <div className="content-icon">
-            <a href="https://twitter.com/home" target="_blank" rel="noopener noreferrer">
-              <FontAwesomeIcon icon={faDatabase} />
-            </a>
-          </div>
-          <div className='text-content'>
-            <p>Notionにてまとめています</p>
-            <p>アイコンからアクセスできます</p>
-          </div>
-          </div>
-        
-      </section> */}
-
     </div>
+    </div>
+    
     
   );
 };

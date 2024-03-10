@@ -6,11 +6,6 @@ import { Link as ScrollLink } from 'react-scroll';
 const Header = () => {
   return (
     <div>
-    <header id="header">
-      <h1 className="logo">
-        {/* <span className="logo-title">Tsuchida Hiroto</span> */}
-      </h1>
-    </header>
     <nav id="gnav">
         <ul>
           <li><Link href="/">HOME</Link></li>
