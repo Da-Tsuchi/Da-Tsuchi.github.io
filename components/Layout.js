@@ -8,8 +8,8 @@ export default function Layout({ children }) {
     <div className="flex flex-col min-h-screen">
       
       <Header />
-      <main className="main">{children}</main> {/* ここでmainクラスを使用 */}
-      <Footer className="footer" /> {/* Footerコンポーネントにfooterクラスを適用（必要に応じて） */}
+      <main className="main">{children}</main> 
+      <Footer className="footer" />
     </div>
   );
 }

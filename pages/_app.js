@@ -9,7 +9,7 @@ function MyApp({ Component, pageProps }) {
   useEffect(() => {
     AOS.init({
       offset: 400, 
-      once: true, // アニメーションを一度だけ実行する
+      once: true, // アニメーションを一度だけ実行
     });
   }, []);
   return (

@@ -20,13 +20,21 @@ const BackgroundAnimation = () => {
   const [lines, setLines] = useState(generateRandomLines(numLines, viewportWidth, viewportHeight));
 
   useEffect(() => {
+    const updateLines = () => {
+      // 新しい線の位置を生成して設定
+      const newLines = generateRandomLines(numLines, viewportWidth, viewportHeight);
+      setLines(newLines);
+    };
+
+    // コンポーネントがマウントされた時に初期線を設定
+    updateLines();
+
     const interval = setInterval(() => {
-      // 新しい線の位置を設定
-      setLines(generateRandomLines(numLines, viewportWidth, viewportHeight));
+      updateLines(); // 新しい線の位置を設定
     }, duration * 1000); // アニメーションの周期で更新
 
     return () => clearInterval(interval);
-  }, [viewportWidth, viewportHeight]);
+  }, [viewportWidth, viewportHeight, numLines, duration]); // 依存配列に numLines と duration を追加
 
   return (
     <div style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', zIndex: -10 }}>
@@ -53,4 +61,5 @@ const BackgroundAnimation = () => {
 };
 
 export default BackgroundAnimation;
+
 

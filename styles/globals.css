@@ -273,7 +273,7 @@ ul, li {
 #product .card-wrapper {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* カード間に均等なスペースを確保 */
+  /* justify-content: center;  */
   gap: 1px; /* カード間の余白を指定 */
 }
 
@@ -368,6 +368,7 @@ ul, li {
   text-align: center;
 }
 #note-content .article-content {
+  font-family: 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック体", YuGothic, 'メイリオ', Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
   text-align: left;
   font-size: 20px; 
 }
@@ -621,6 +622,12 @@ ul, li {
     justify-content: center; /* 子要素を垂直方向の中央に揃える */
     width: 48%;
     margin-bottom: 16px; /* カード間のスペースを調整 */
+  }
+  #product .card-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+    gap: 1px; /* カード間の余白を指定 */
   }
   
   #product .card-image {

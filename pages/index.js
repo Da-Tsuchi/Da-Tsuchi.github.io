@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrophy, faAward, faMedal, faStar, faRibbon } from '@fortawesome/free-solid-svg-icons'
 import { faSquareXTwitter, faGithub} from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope ,faDatabase,faCloud,faNetworkWired,faToolbox,faMagnifyingGlass,faImage,faGears } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope ,faDatabase,faCloud,faNetworkWired,faToolbox,faMagnifyingGlass,faImage,faGears,faGraduationCap,faBookOpenReader } from '@fortawesome/free-solid-svg-icons';
 import { faCalendarDays } from '@fortawesome/free-solid-svg-icons';
 import { basePath } from "../next.config" // 追加
 import { getSortedArticlesData } from '../lib/articles';
@@ -64,9 +64,11 @@ const Home = ({allArticlesData}) => {
           <div className='text-content'>
             <p>情報系専攻の土田裕登です。</p>
             <p>視覚情報とLLMを融合したVision＆Languageの研究に取り組んでいます。</p>
-            <p><strong>2024.04 - 現在：<a className="link" href="https://gnst.gifu-u.ac.jp/intellscieng/infomatics/" target="_blank" rel="noopener noreferrer">岐阜大学大学院 自然科学技術研究科 知能理工学専攻</a></strong></p>
-            <p><strong>2022.10 - 現在：<a className="link" href="http://www.cv.info.gifu-u.ac.jp/index.html" target="_blank" rel="noopener noreferrer">加藤研究室</a> 所属</strong></p>
-            <p><strong>2020.04 - 2024.03：<a className="link" href="https://www.eng.gifu-u.ac.jp/denkidenshi-jyouhou/" target="_blank" rel="noopener noreferrer">岐阜大学 工学部 電気電子・情報工学科</a><a href="https://www.info.gifu-u.ac.jp" className="link" target="_blank" rel="noopener noreferrer"> 情報コース</a></strong></p>
+          </div>
+            <div className="text-content">
+            <p><FontAwesomeIcon icon={faBookOpenReader}/><strong> 2024.04 - 現在：<a className="link" href="https://gnst.gifu-u.ac.jp/intellscieng/infomatics/" target="_blank" rel="noopener noreferrer">岐阜大学大学院 自然科学技術研究科 知能理工学専攻</a></strong></p>
+            <p><FontAwesomeIcon icon={faBookOpenReader}/><strong> 2022.10 - 現在：<a className="link" href="http://www.cv.info.gifu-u.ac.jp/index.html" target="_blank" rel="noopener noreferrer">加藤研究室</a> 所属</strong></p>
+            <p><strong><FontAwesomeIcon icon={faGraduationCap}/> 2020.04 - 2024.03：<a className="link" href="https://www.eng.gifu-u.ac.jp/denkidenshi-jyouhou/" target="_blank" rel="noopener noreferrer">岐阜大学 工学部 電気電子・情報工学科</a><a href="https://www.info.gifu-u.ac.jp" className="link" target="_blank" rel="noopener noreferrer"> 情報コース</a></strong></p>
             
             </div>
           </div>
@@ -201,7 +203,7 @@ const Home = ({allArticlesData}) => {
                   <img src="images/django.png" alt=""></img>
                 </div>
                 <div className="skill-desc">
-                  <h3 className="skill-desc-title">django</h3>
+                  <h3 className="skill-desc-title">Django</h3>
                   <p>ShiftMangementでサイトを動かすフレームワークとして使用しています。</p>
                   
                 </div>
@@ -439,7 +441,16 @@ const Home = ({allArticlesData}) => {
             <div className="section-desc">制作物の一覧です。クリックするとリポジトリに飛べます。</div>
           </div>
           <div className="card-wrapper my-gallery" data-aos="fade-up">
-          
+            <figure className="card">
+              <a href="https://github.com/Da-Tsuchi/Da-Tsuchi.github.io" target="_blank" className="card-link">
+                <img className="card-image" src="images/portfolio.png" alt="" />
+                <figcaption className="card-caption">
+                  <p className="card-caption-title">ポートフォリオサイト</p>
+                  <p className="card-caption-info">スキルや制作物を紹介するためのサイトです</p>
+                  </figcaption>
+                </a>
+            </figure>
+
             <figure className="card">
             <a href="https://github.com/mkt11/AI_Zunda_web_release" target="_blank" className="card-link">
                 <img className="card-image" src="images/aizunda.png" alt="" />
@@ -473,7 +484,7 @@ const Home = ({allArticlesData}) => {
             <img className="card-image" src="images/shiftlogo.png" alt="" />
               <figcaption className="card-caption">
                 <p className="card-caption-title">Shift Management</p>
-                <p className="card-caption-info">個別指導のシフトを自動作成するツール</p>
+                <p className="card-caption-info">個別指導のシフトを自動的に作成するためのツールです</p>
                 {/* <p className="card-caption-info">HTML/CSS/Javascript/python/django/mysql</p> */}
   
               </figcaption>
@@ -494,7 +505,7 @@ const Home = ({allArticlesData}) => {
           <div className="awards-text" data-aos="fade-up">
             <ul className="awards-list">
             <li><strong>2024</strong></li>
-            {/* <li><FontAwesomeIcon icon={faTrophy} /> 技育博 企業賞（株式会社DeNA賞）</li> */}
+            <li><FontAwesomeIcon icon={faTrophy} /> 技育博 株式会社DeNA賞（チームずんだ）</li>
             <li><FontAwesomeIcon icon={faAward} />  岐阜大学 工学部学部長表彰 課外活動</li>
             <li><strong>2023</strong></li>
             <li><FontAwesomeIcon icon={faAward} />  岐阜大学 工学部学部長表彰 課外活動</li>

@@ -14,7 +14,7 @@ const Header = () => {
           <li><ScrollLink to="product" spy={true} smooth={true} duration={500} className="link">PRODUCT</ScrollLink></li>
           <li><ScrollLink to="awards" spy={true} smooth={true} duration={500} className="link">AWARD</ScrollLink></li>
           <li><ScrollLink to="note" spy={true} smooth={true} duration={500} className="link">NOTE</ScrollLink></li>
-          {/* <li><ScrollLink to="paper" spy={true} smooth={true} duration={500} className="link">PAPER</ScrollLink></li> */}
+          
         </ul>
       </nav>
     </div>
