@@ -1,7 +1,6 @@
 import Header from './Header';
 import Footer from './Footer';
 import "@fortawesome/fontawesome-svg-core/styles.css"
-import TypingAnimation from '../components/TypingAnimation';
 
 export default function Layout({ children }) {
   return (

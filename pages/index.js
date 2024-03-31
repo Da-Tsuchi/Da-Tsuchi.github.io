@@ -51,7 +51,7 @@ const Home = ({allArticlesData}) => {
         <div className="text" data-aos="fade-up">
         <img src="images/me.jpg" alt=""></img>
         <div className="content-icon">
-            <a href="https://twitter.com/home" target="_blank" rel="noopener noreferrer">
+            <a href="https://twitter.com/tsuchi_da" target="_blank" rel="noopener noreferrer">
               <FontAwesomeIcon icon={faSquareXTwitter}/>
             </a>
             <a href="https://github.com/Da-Tsuchi" target="_blank" rel="noopener noreferrer">
@@ -505,16 +505,17 @@ const Home = ({allArticlesData}) => {
           <div className="awards-text" data-aos="fade-up">
             <ul className="awards-list">
             <li><strong>2024</strong></li>
+            <li><FontAwesomeIcon icon={faAward} />  岐阜大学 学長表彰（学業成績 卒業表彰）</li>
             <li><FontAwesomeIcon icon={faTrophy} /> 技育博 株式会社DeNA賞（チームずんだ）</li>
-            <li><FontAwesomeIcon icon={faAward} />  岐阜大学 工学部学部長表彰 課外活動</li>
+            <li><FontAwesomeIcon icon={faAward} />  岐阜大学 工学部学部長表彰（課外活動）</li>
             <li><strong>2023</strong></li>
-            <li><FontAwesomeIcon icon={faAward} />  岐阜大学 工学部学部長表彰 課外活動</li>
+            <li><FontAwesomeIcon icon={faAward} />  岐阜大学 工学部学部長表彰（課外活動）</li>
             <li><FontAwesomeIcon icon={faTrophy} /> 技育CAMPアドバンスvol.4 大賞（チームずんだ）</li>
             <li><FontAwesomeIcon icon={faTrophy} /> 技育CAMPマンスリーハッカソンvol.11 最優秀賞（チームずんだ）</li>
             <li><strong>2022</strong></li>
-            <li><FontAwesomeIcon icon={faAward} />  岐阜大学 学長表彰 学業成績</li>
+            <li><FontAwesomeIcon icon={faAward} />  岐阜大学 学長表彰（学業成績 学年表彰）</li>
             <li><strong>2021</strong></li>
-            <li><FontAwesomeIcon icon={faAward} />  岐阜大学 工学部学部長表彰 学業成績</li>
+            <li><FontAwesomeIcon icon={faAward} />  岐阜大学 工学部学部長表彰（学業成績 学年表彰）</li>
           </ul>
           </div>
       </div>
