@@ -129,7 +129,7 @@ const Home = ({allArticlesData}) => {
                   <p>AIずんだWEBや本ホームページのUI実装に使用しています。</p>
                 </div>
               </div>
-              <div className="card">
+              {/* <div className="card">
                 <div className="skill-icon">
                   <img src="images/nextjs.png" alt=""></img>
                   </div>
@@ -137,7 +137,7 @@ const Home = ({allArticlesData}) => {
                   <h3 className="skill-desc-title">Next.js</h3>
                   <p>本ホームページのフレームワークとして使用しています。</p>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
           </div>
