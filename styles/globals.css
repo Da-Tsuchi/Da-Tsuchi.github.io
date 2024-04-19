@@ -98,12 +98,12 @@ ul, li {
   flex-wrap: wrap;
   justify-content: center;
   padding-inline-start: 0px;
-  margin-block-start: 10px;
-  margin-block-end: 10px;
+  margin-block-start: 5px;
+  margin-block-end: 5px;
 }
 #gnav li {
   font-weight: bold;
-  font-size: 25px;
+  font-size: 20px;
   padding: 0 20px;
 }
 
@@ -517,6 +517,60 @@ ul, li {
 }
 
 /*--------------------------------
+ Publications
+---------------------------------*/
+.pub-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+#pub .section-title-area {
+  text-align: center;
+}
+
+#pub .skill-section-title {
+font-size: 30px;
+margin-top: 0%;
+margin-bottom: 0%;
+
+}
+
+#pub .section-title-block{
+  padding-top: 20px;
+}
+.pub-title {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 24px;
+  color: #333;
+}
+
+.pub-text {
+  font-family: 'ヒラギノ角ゴ Pro W3';
+  text-align: center;
+	display: block;
+  font-size: 30px;
+}
+
+.pub-list {
+  list-style: none;
+  padding-left: 20px;
+  padding-right: 20px;
+  /* text-align: center; */
+  display: inline-block;
+
+}
+
+.pub-list li {
+  margin-bottom: 15px;
+  font-size: 20px;
+  color: #333;
+  text-align: left;
+}
+
+
+/*--------------------------------
  Footer
 ---------------------------------*/
 
@@ -598,6 +652,9 @@ ul, li {
   #contents {
     padding: 40px 0;
   }
+  .h2 .h3 {
+    font-size: 10vw;
+  }
   .section .inner {
     padding: 30px 15px;
   }
@@ -611,7 +668,11 @@ ul, li {
     font-size: 2vw;
   }
 
-  #awards .awards-text {
+  #awards .awards-text li{
+    font-size: 2vw;
+  }
+
+  #pub .pub-list li {
     font-size: 2vw;
   }
   
@@ -711,14 +772,18 @@ ul, li {
   transition: transform 0.2s; /* ホバー時のアニメーション効果 */
 }
 
+#note .card p{
+  font-size: 2vw;
+}
+
 #note .card:hover {
   transform: scale(1.05); /* ホバー時に少し大きくする */
   box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* ホバー時に影をつける */
 }
 
 #note .card-image {
-  width: 50%; /* 画像の幅をカードの幅に合わせて100%に設定 */
-  height: 200px; 
+  width: 20%; /* 画像の幅をカードの幅に合わせて100%に設定 */
+  height: 20%; 
   /* 画像の高さを自動調整してアスペクト比を保持 */
   display: block;
   margin: 0 auto;

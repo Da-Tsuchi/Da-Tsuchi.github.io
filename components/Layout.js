@@ -8,6 +8,7 @@ export default function Layout({ children }) {
     <div>
       <Head>
         <meta name="google-site-verification" content="MSW7uAvAq4_hq6ioPiOafVkmWwx1707GizVeYUajhik" />
+        <link rel="icon" href="/images/favicon.ico"></link>
       </Head>
       <title>土田 裕登</title>
       <Header />

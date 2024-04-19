@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrophy, faAward, faMedal, faStar, faRibbon } from '@fortawesome/free-solid-svg-icons'
 import { faSquareXTwitter, faGithub} from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope ,faDatabase,faCloud,faNetworkWired,faToolbox,faMagnifyingGlass,faImage,faGears,faGraduationCap,faBookOpenReader } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope ,faDatabase,faCloud,faNetworkWired,faToolbox,faMagnifyingGlass,faImage,faGears,faGraduationCap,faBookOpenReader,faFileLines } from '@fortawesome/free-solid-svg-icons';
 import { faCalendarDays } from '@fortawesome/free-solid-svg-icons';
 import { basePath } from "../next.config" // 追加
 import { getSortedArticlesData } from '../lib/articles';
@@ -45,7 +45,7 @@ const Home = ({allArticlesData}) => {
       <section className="section" id="Profile">
         <div className="inner">
           <div className="section-title-block" data-aos="fade-up">
-            <h2 className="section-title">PROFILE</h2>
+            <h2 className="section-title">Profile</h2>
           </div>
         </div>
         <div className="text" data-aos="fade-up">
@@ -78,7 +78,7 @@ const Home = ({allArticlesData}) => {
       <section className="section" id="skill">
         <div className="inner">
           <div className="section-title-block" data-aos="fade-up">
-            <h2 className="section-title">SKILL</h2>
+            <h2 className="section-title">Skill</h2>
             <p className="section-desc"></p>
           </div>
           </div>
@@ -86,7 +86,7 @@ const Home = ({allArticlesData}) => {
           <div className="fade-up" data-aos="fade-up">
           <div className="inner">
             <div className="section-title-area">
-            <h3 className="skill-section-title"><FontAwesomeIcon icon={faImage}/> FRONT-END</h3>
+            <h3 className="skill-section-title"><FontAwesomeIcon icon={faImage}/> Front-End</h3>
             </div>
           </div>
           <div className="inner">
@@ -129,22 +129,13 @@ const Home = ({allArticlesData}) => {
                   <p>AIずんだWEBや本ホームページのUI実装に使用しています。</p>
                 </div>
               </div>
-              {/* <div className="card">
-                <div className="skill-icon">
-                  <img src="images/nextjs.png" alt=""></img>
-                  </div>
-                <div className="skill-desc">
-                  <h3 className="skill-desc-title">Next.js</h3>
-                  <p>本ホームページのフレームワークとして使用しています。</p>
-                </div>
-              </div> */}
             </div>
           </div>
           </div>
           <div className="fade-up" data-aos="fade-up">
           <div className="inner">
             <div className="section-title-area">
-            <h3 className="skill-section-title"><FontAwesomeIcon icon={faGears}/> BACK-END</h3>
+            <h3 className="skill-section-title"><FontAwesomeIcon icon={faGears}/> Back-End</h3>
             </div>
           </div>
           <div className="inner">
@@ -244,7 +235,7 @@ const Home = ({allArticlesData}) => {
           
           <div className="inner">
             <div className="section-title-area">
-            <h3 className="skill-section-title"><FontAwesomeIcon icon={faCloud}/> CLOUD</h3>
+            <h3 className="skill-section-title"><FontAwesomeIcon icon={faCloud}/> Cloud</h3>
             </div>
           </div>
           <div className="inner">
@@ -266,7 +257,7 @@ const Home = ({allArticlesData}) => {
           <div className="fade-up" data-aos="fade-up">
           <div className="inner">
             <div className="section-title-area">
-            <h3 className="skill-section-title"><FontAwesomeIcon icon={faMagnifyingGlass}/> RESEARCH TOOL</h3>
+            <h3 className="skill-section-title"><FontAwesomeIcon icon={faMagnifyingGlass}/> Research Tool</h3>
             </div>
           </div>
           <div className="inner">
@@ -328,7 +319,7 @@ const Home = ({allArticlesData}) => {
           <div className="fade-up" data-aos="fade-up">
           <div className="inner">
             <div className="section-title-area">
-            <h3 className="skill-section-title"><FontAwesomeIcon icon={faNetworkWired}/> INFRA</h3>
+            <h3 className="skill-section-title"><FontAwesomeIcon icon={faNetworkWired}/> Infra</h3>
             </div>
           </div>
           <div className="inner">
@@ -370,7 +361,7 @@ const Home = ({allArticlesData}) => {
           <div className="fade-up" data-aos="fade-up">
           <div className="inner">
             <div className="section-title-area">
-            <h3 className="skill-section-title"><FontAwesomeIcon icon={faToolbox}/> TOOL</h3>
+            <h3 className="skill-section-title"><FontAwesomeIcon icon={faToolbox}/> Tool</h3>
             </div>
           </div>
           <div className="inner">
@@ -401,7 +392,7 @@ const Home = ({allArticlesData}) => {
 
           <div className="inner">
             <div className="section-title-area">
-            <h3 className="skill-section-title">OTHERS</h3>
+            <h3 className="skill-section-title">Others</h3>
             </div>
           </div>
           <div className="inner">
@@ -437,7 +428,7 @@ const Home = ({allArticlesData}) => {
       <section className="section" id="product">
         <div className="inner">
           <div className="section-title-block" data-aos="fade-up">
-            <h2 className="section-title">PRODUCT</h2>
+            <h2 className="section-title">Product</h2>
             <div className="section-desc">制作物の一覧です。クリックするとリポジトリに飛べます。</div>
           </div>
           <div className="card-wrapper my-gallery" data-aos="fade-up">
@@ -496,16 +487,48 @@ const Home = ({allArticlesData}) => {
         </div>
       </section>
       
+      <section className="section" id="pub" data-aos="fade-up">
+      <div className="inner">
+          <div className="section-title-block">
+            <h2 className="section-title">Publication</h2>
+            <div className="section-desc"></div>
+          </div>
+          <div className="inner">
+            <div className="section-title-area">
+            <h3 className="skill-section-title"><FontAwesomeIcon icon={faFileLines}/> 国内学会</h3>
+            </div>
+          </div>
+          <div className="pub-text">
+            <ul className="pub-list">
+            <li><a className="link" href="https://www.tc-iaip.org/dia/2024/program.html#os3" target="_blank" rel="noopener noreferrer">軸屋敬介，梁瀬和哉，表英輝，<strong>土田裕登</strong>，加藤邦人，"大規模Vision&Languageマルチタスクモデルの学習効率化とHuman-Object Interactionへの適用"，動的画像処理実利用化ワークショップ DIA 2024，OS3-2 (IS3-2)，2024.3.5</a></li>
+          </ul>
+          </div>
+
+          <div className="inner">
+            <div className="section-title-area">
+            <h3 className="skill-section-title"><FontAwesomeIcon icon={faFileLines}/> 国際学会</h3>
+            </div>
+          </div>
+          <div className="pub-text" >
+            <ul className="pub-list">
+            <li><a className="link" href="https://sites.google.com/view/iw-fcv2024/conference" target="_blank" rel="noopener noreferrer">Kazuya Yanase，Keisuke Jikuya，Hideaki Omote，<strong>Hiroto Tsuchida</strong>，Kunihito Kato，"Constructing Lightweight Large Vision-Language Model: A Target Approach to Downstream Tasks"，IW-FCV 2024，OS6-1，2024.2.20</a></li>
+          </ul>
+          </div>
+      </div>
+      </section>
+
       <section className="section" id="awards">
       <div className="inner">
           <div className="section-title-block" data-aos="fade-up">
-            <h2 className="section-title">AWARD</h2>
+            <h2 className="section-title">Award</h2>
             <div className="section-desc"></div>
           </div>
+          
           <div className="awards-text" data-aos="fade-up">
             <ul className="awards-list">
             <li><strong>2024</strong></li>
-            <li><FontAwesomeIcon icon={faAward} />  岐阜大学 学長表彰（学業成績 卒業表彰）</li>
+            
+            <li><FontAwesomeIcon icon={faAward} />  <a className="link" href="https://www.eng.gifu-u.ac.jp/topics/2024/04/02.html" target="_blank" rel="noopener noreferrer">岐阜大学 学長表彰（学業成績 卒業表彰）</a></li>
             <li><FontAwesomeIcon icon={faTrophy} /> 技育博 株式会社DeNA賞（チームずんだ）</li>
             <li><FontAwesomeIcon icon={faAward} />  岐阜大学 工学部学部長表彰（課外活動）</li>
             <li><strong>2023</strong></li>
@@ -524,7 +547,7 @@ const Home = ({allArticlesData}) => {
       <section className="section" id="note">
         <div className="inner">
           <div className="section-title-block" data-aos="fade-up">
-            <h2 className="section-title">NOTE</h2>
+            <h2 className="section-title">Note</h2>
             <div className="section-desc"></div>
           </div>
 

@@ -8,12 +8,13 @@ const Header = () => {
     <div>
     <nav id="gnav">
         <ul>
-          <li><Link href="/">HOME</Link></li>
-          <li><ScrollLink to="Profile" spy={true} smooth={true} duration={500} className="link">PROFILE</ScrollLink></li>
-          <li><ScrollLink to="skill" spy={true} smooth={true} duration={500} className="link">SKILL</ScrollLink></li>
-          <li><ScrollLink to="product" spy={true} smooth={true} duration={500} className="link">PRODUCT</ScrollLink></li>
-          <li><ScrollLink to="awards" spy={true} smooth={true} duration={500} className="link">AWARD</ScrollLink></li>
-          <li><ScrollLink to="note" spy={true} smooth={true} duration={500} className="link">NOTE</ScrollLink></li>
+          <li><Link href="/">Home</Link></li>
+          <li><ScrollLink to="Profile" spy={true} smooth={true} duration={500} className="link">Profile</ScrollLink></li>
+          <li><ScrollLink to="skill" spy={true} smooth={true} duration={500} className="link">Skill</ScrollLink></li>
+          <li><ScrollLink to="product" spy={true} smooth={true} duration={500} className="link">Product</ScrollLink></li>
+          <li><ScrollLink to="pub" spy={true} smooth={true} duration={500} className="link">Publication</ScrollLink></li>
+          <li><ScrollLink to="awards" spy={true} smooth={true} duration={500} className="link">Award</ScrollLink></li>
+          <li><ScrollLink to="note" spy={true} smooth={true} duration={500} className="link">Note</ScrollLink></li>
           
         </ul>
       </nav>
