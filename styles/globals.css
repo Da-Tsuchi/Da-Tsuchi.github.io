@@ -652,18 +652,21 @@ margin-bottom: 0%;
   #contents {
     padding: 40px 0;
   }
-  .h2 .h3 {
-    font-size: 10vw;
-  }
+  
   .section .inner {
-    padding: 30px 15px;
+    padding: 0px 15px;
   }
   .section .section-title-block {
     margin-bottom: 10px;
   }
   .section .section-title {
-    font-size: 36px;
+    font-size: 4vw;
   }
+
+  #pub .skill-section-title {
+    font-size: 4vw;
+  }
+
   #Profile .text-content {
     font-size: 2vw;
   }
@@ -726,6 +729,8 @@ margin-bottom: 0%;
 }
   #skill .card {
     flex-basis: 100%;
+    font-size: 2vw;
+    padding: 0 10px
   }
   #skill .skill-icon {
     flex-basis: 45px;
@@ -737,6 +742,10 @@ margin-bottom: 0%;
     flex-basis: calc(100% - 50px - 10px);
   }
   
+  #skill .skill-section-title {
+    font-size: 4vw;
+  }
+
   #footer .inner {
     padding: 20px 0;
   }
