@@ -344,7 +344,7 @@ const Home = ({allArticlesData}) => {
                   
                 </div>
               </div>
-              <div className="card">
+              {/* <div className="card">
                 <div className='skill-icon'>
                   <img src="images/singularity.png" alt=""></img>
                 </div>
@@ -353,7 +353,7 @@ const Home = ({allArticlesData}) => {
                   <p>スパコンなどで利用される仮想環境ツールです。管理者権限がなくても動かせるため便利です。</p>
                   
                 </div>
-              </div>
+              </div> */}
               </div>
           </div>
           </div>
