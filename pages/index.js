@@ -500,6 +500,7 @@ const Home = ({allArticlesData}) => {
           </div>
           <div className="pub-text">
             <ul className="pub-list">
+            <li><a className="link" href="https://www.ite.or.jp/study/me/ss/2024/#program" target="_blank" rel="noopener noreferrer"><strong>土田裕登</strong>，梁瀬和哉，加藤邦人，"大規模視覚言語モデルにおける未見タスクの効率的な追加学習法の検討"，サマーセミナー2024，1-2，2024.8.22</a></li>
             <li><a className="link" href="https://www.tc-iaip.org/dia/2024/program.html#os3" target="_blank" rel="noopener noreferrer">軸屋敬介，梁瀬和哉，表英輝，<strong>土田裕登</strong>，加藤邦人，"大規模Vision&Languageマルチタスクモデルの学習効率化とHuman-Object Interactionへの適用"，動的画像処理実利用化ワークショップ DIA 2024，OS3-2 (IS3-2)，2024.3.5</a></li>
           </ul>
           </div>
