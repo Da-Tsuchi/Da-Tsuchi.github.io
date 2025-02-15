@@ -528,9 +528,9 @@ const Home = ({allArticlesData}) => {
           <div className="awards-text" data-aos="fade-up">
             <ul className="awards-list">
             <li><strong>2024</strong></li>
-            
+            <li><FontAwesomeIcon icon={faAward} /> 電子情報通信学会東海支部 学業成績優秀者賞</li>
             <li><FontAwesomeIcon icon={faAward} />  <a className="link" href="https://www.eng.gifu-u.ac.jp/topics/2024/04/02.html" target="_blank" rel="noopener noreferrer">岐阜大学 学長表彰（学業成績 卒業表彰）</a></li>
-            <li><FontAwesomeIcon icon={faTrophy} /> 技育博 株式会社DeNA賞（チームずんだ）</li>
+            <li><FontAwesomeIcon icon={faTrophy} /> 技育博 企業賞（チームずんだ）</li>
             <li><FontAwesomeIcon icon={faAward} />  岐阜大学 工学部学部長表彰（課外活動）</li>
             <li><strong>2023</strong></li>
             <li><FontAwesomeIcon icon={faAward} />  岐阜大学 工学部学部長表彰（課外活動）</li>
