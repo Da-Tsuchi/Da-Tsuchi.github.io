@@ -392,7 +392,7 @@ const Home = ({allArticlesData}) => {
 
           <div className="inner">
             <div className="section-title-area">
-            <h3 className="skill-section-title">Others</h3>
+            <h3 className="skill-section-title">Certifications</h3>
             </div>
           </div>
           <div className="inner">
@@ -402,8 +402,10 @@ const Home = ({allArticlesData}) => {
                   <img src="images/ipa.png" alt=""></img>
                 </div>
                 <div className="skill-desc">
-                  <h3 className="skill-desc-title">基本情報技術者</h3>
-                  <p></p>
+                  <h3 className="skill-desc-title">基本情報技術者試験（FE）</h3>
+                  <p>IPA 独立行政法人 情報処理推進機構</p>
+                  <p>2021年12月</p>
+                  {/* <p>本サイトや各種プロダクトで使用</p> */}
                   
                 </div>
               </div>
@@ -412,7 +414,9 @@ const Home = ({allArticlesData}) => {
                   <img src="images/ipa.png" alt=""></img>
                 </div>
                 <div className="skill-desc">
-                  <h3 className="skill-desc-title">応用情報技術者</h3>
+                  <h3 className="skill-desc-title">応用情報技術者試験（AP）</h3>
+                  <p>IPA 独立行政法人 情報処理推進機構</p>
+                  <p>2023年12月</p>
                   {/* <p>本サイトや各種プロダクトで使用</p> */}
                   
                 </div>
