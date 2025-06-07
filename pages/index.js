@@ -1,4 +1,4 @@
-import Section from '../layout/Section'; 
+import Section from '../components/layout/Section'; 
 import ProfileSection from '../components/profile/ProfileSection';
 import SkillSection from '../components/skill/SkillSection';
 import ProductGallery from '../components/product/ProductGallery';
@@ -9,6 +9,7 @@ import { products } from '../data/products';
 import { getSortedArticlesData } from '../lib/articles';
 import { useState, useEffect } from 'react';
 import TypingAnimation from '../components/TypingAnimation';
+
 
 export async function getStaticProps() {
   return { props: { allArticlesData: getSortedArticlesData() } };
