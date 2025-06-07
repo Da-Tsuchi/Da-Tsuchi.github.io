@@ -1,34 +1,45 @@
-/* TypingAnimation.module.css */
-.typingAnimationContainer {
-  font-family: "ヒラギノ角ゴ Pro W3, Hiragino Kaku Gothic Pro, 游ゴシック Medium", sans-serif;
-  font-size: 50px;
-  white-space: pre;
-  overflow: hidden;
-  position: relative;
-  width: 100%;
+/* 画面いっぱいのヒーローセクション */
+.typing-animation-container {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* display: inline-block; テキストの幅に合わせてコンテナを調整 */
+  color: #f9f9f9;                       /* 読みやすい白 */
+  transition: background 0.6s ease;    /* 透過フェード */
+  font-size: clamp(3rem, 8vw, 5rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  z-index: 10;                          /* 粒子(canvas) より手前 */
+}
+
+/* フルテキスト完成後に付与 */
+.fadeOut {
+  background: transparent;             /* ← ここが透けないと粒子が見えない */
+}
+
+/* タイトルを大きくレスポンシブで */
+.title {
+  /* モバイルでも視認できるよう最小 3rem,
+     FHD なら 8vw ≒ 153px,
+     超ワイドでも 6rem (96px) で頭打ち */
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  white-space: pre;
+  color: inherit;
 }
 
 
-.icons {
-  display: flex;
-  justify-content: space-around; /* アイコンの間隔を均等に配置 */
-  margin-top: 10px; /* テキストとアイコンの間隔 */
+/* ブリンクカーソル */
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  50.01%, 100% { opacity: 0; }
 }
-
-.iconStyle {
-  color: #ffd700; /* アイコンの色 */
-  font-size: 24px; /* アイコンのサイズ */
-}
-
-@media screen and (max-width: 950px) {
-.typingAnimationContainer{
-  font-size: 4vw; /* ビューポートの幅に基づいてフォントサイズを調整 */
-  white-space: break-spaces; /* テキストを折り返す */
-  word-wrap: break-word; /* 長い単語を次の行に折り返す */
-}
+.cursor {
+  width: 0.6em;
+  height: 1em;
+  margin-left: 0.1em;
+  background: currentColor;
+  animation: blink 1s step-end infinite;
+  display: inline-block;
 }

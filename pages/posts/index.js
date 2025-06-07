@@ -1,9 +1,5 @@
-import Link from 'next/link';
-import Layout from '../../components/Layout';
 import { getSortedArticlesData } from '../../lib/articles';
-import Header from '../../components/Header';
 import React, { useState, useEffect } from 'react';
-import Footer from '../../components/Footer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendarDays } from '@fortawesome/free-solid-svg-icons';
 
@@ -41,33 +37,36 @@ const Articles = ({ allArticlesData }) => {
     allArticlesData.sort((a, b) => new Date(b.date) - new Date(a.date));
         
     return (
-    <div id="wrapper">
-      <section className="section" id="note">
-        <div className="inner">
-          <div className="section-title-block">
-            <h2 className="section-title"><span className="section-title-css">NOTE</span></h2>
-          </div>
-          
-          <div className="card-wrapper my-gallery">
-          
-            {allArticlesData.map(article => (
-              <a key={article.id} className="card-link" href={`/posts/${article.id}`}>
-                <figure className="card">
-                  
-                  <img className="card-image" src={article.image} alt={article.title} />
-                  <div className="card-content">
-                    <p className="card-caption-title">{article.title}</p>
-                    
-                    <p className="card-caption-date"><FontAwesomeIcon icon={faCalendarDays} />  {article.date}</p>
-                    <p className="card-caption-info">{article.abst}</p>
-                  </div>
-                  
-                </figure>
-                </a>
-            ))}
-          </div>
+      <div>
+        {/* <BackgroundAnimation /> */}
+        <div id="wrapper">
+          <section className="section" id="note">
+            <div className="inner">
+              <div className="section-title-block">
+                <h2 className="section-title">Note</h2>
+              </div>
+              
+              <div className="card-wrapper my-gallery">
+              
+                {allArticlesData.map(article => (
+                  <a key={article.id} className="card-link" href={`/posts/${article.id}`}>
+                    <figure className="card">
+                      
+                      <img className="card-image" src={article.image} alt={article.title} />
+                      <div className="card-content">
+                        <p className="card-caption-title">{article.title}</p>
+                        
+                        <p className="card-caption-date"><FontAwesomeIcon icon={faCalendarDays} />  {article.date}</p>
+                        <p className="card-caption-info">{article.abst}</p>
+                      </div>
+                      
+                    </figure>
+                    </a>
+                ))}
+              </div>
+            </div>
+          </section>
         </div>
-      </section>
     </div>
     );
   };  

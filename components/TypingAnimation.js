@@ -1,35 +1,41 @@
-import React, { useEffect, useState } from 'react';
-import styles from './TypingAnimation.module.css'; // スタイルを適切にインポート
-import BackgroundAnimation from './BackgroundAnimation'; // BackgroundAnimation コンポーネントをインポート
+import React, { useEffect, useState, useRef } from "react";
+import BackgroundAnimation from "./BackgroundAnimation";
+import styles from "./TypingAnimation.module.css"; // .typing-animation-container 等を含む
 
-const TypingAnimation = () => {
-    const [text, setText] = useState('');
-    const [isCompleted, setIsCompleted] = useState(false);
-    const fullText = "  Hiroto Tsuchida's Page";
-    const typingDelay = 100;
-    let index = 0;
+export default function TypingAnimation() {
+  const full = "  Hiroto Tsuchida's Page";
+  const [txt, setTxt] = useState("");
+  const [done, setDone] = useState(false);
+  const idx = useRef(0);
 
-    useEffect(() => {
-        const timer = setInterval(() => {
-            setText((prev) => prev + fullText.charAt(index));
-            index++;
-            if (index === fullText.length) {
-                clearInterval(timer);
-                setIsCompleted(true); // テキスト表示完了時にtrueに設定
-            }
-        }, typingDelay);
+  useEffect(() => {
+    const id = setInterval(() => {
+      setTxt(p => p + full.charAt(idx.current));
+      idx.current += 1;
+      if (idx.current === full.length) {
+        clearInterval(id);
+        setDone(true);
+      }
+    }, 100);
+    return () => clearInterval(id);
+  }, []);
 
-        return () => clearInterval(timer);
-    }, []);
+  return (
+    <>
+      {/* 粒子レイヤー ― 常時表示だが zIndex 0 なので背面に */}
+      <BackgroundAnimation />
 
-    return (
-        <div className={styles.typingAnimationContainer} style={{ position: 'relative', width: '100%', height: '100vh', zIndex: 1 }}>
-            {isCompleted ? <BackgroundAnimation /> : null} {/* 条件付きで背景アニメーションを表示 */}
-            <div style={{ position: 'relative', zIndex: 0 }}>
-            <strong>{text}</strong>
-            </div>
-        </div>
-    );
+      {/* ヒーローセクション ― 通常フロー。打ち終われば透明化 */}
+      <section
+        className={`${styles["typing-animation-container"]} ${
+          done ? styles.done : ""
+        }`}
+      >
+        <strong>
+          {txt}
+          {!done && <span className={styles.cursor} />}
+        </strong>
+      </section>
+    </>
+  );
 }
-
-export default TypingAnimation;

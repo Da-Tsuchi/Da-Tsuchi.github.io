@@ -1,62 +1,118 @@
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { useRef, useEffect } from 'react';
 
-const numLines = 25; // 表示する線の数
-const duration = 3; // アニメーションの持続時間（秒）
-
-// 線をランダムに配置するための関数
-const generateRandomLines = (num, viewportWidth, viewportHeight) => {
-  return Array.from({ length: num }, () => ({
-    startX: Math.random() * viewportWidth,
-    startY: Math.random() * viewportHeight,
-    endX: Math.random() * viewportWidth,
-    endY: Math.random() * viewportHeight,
-  }));
-};
-
-const BackgroundAnimation = () => {
-  const viewportWidth = window.innerWidth; // ビューポートの実際の幅
-  const viewportHeight = window.innerHeight; // ビューポートの実際の高さ
-  const [lines, setLines] = useState(generateRandomLines(numLines, viewportWidth, viewportHeight));
+const BackgroundAnimation = ({ count = 120 }) => {
+  const canvasRef = useRef(null);
 
   useEffect(() => {
-    const updateLines = () => {
-      // 新しい線の位置を生成して設定
-      const newLines = generateRandomLines(numLines, viewportWidth, viewportHeight);
-      setLines(newLines);
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext("2d");
+
+    let width = (canvas.width = window.innerWidth);
+    let height = (canvas.height = window.innerHeight);
+
+    // --- 画面リサイズ対応 -----------------------------------------------
+    const handleResize = () => {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    };
+    window.addEventListener("resize", handleResize);
+
+    // --- マウスポインタ情報 ---------------------------------------------
+    const pointer = { x: width / 2, y: height / 2, active: false };
+
+    const handlePointerMove = (e) => {
+      pointer.x = e.clientX;
+      pointer.y = e.clientY;
+      pointer.active = true;
     };
 
-    // コンポーネントがマウントされた時に初期線を設定
-    updateLines();
+    const handlePointerLeave = () => {
+      pointer.active = false;
+    };
 
-    const interval = setInterval(() => {
-      updateLines(); // 新しい線の位置を設定
-    }, duration * 1000); // アニメーションの周期で更新
+    window.addEventListener("pointermove", handlePointerMove);
+    window.addEventListener("pointerleave", handlePointerLeave);
 
-    return () => clearInterval(interval);
-  }, [viewportWidth, viewportHeight, numLines, duration]); // 依存配列に numLines と duration を追加
+    // --- 粒子生成 ---------------------------------------------------------
+    const particles = Array.from({ length: count }).map(() => ({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      vx: (Math.random() - 0.5) * 0.5,
+      vy: (Math.random() - 0.5) * 0.5,
+      size: 1 + Math.random() * 2,
+      hue: Math.random() * 360,
+    }));
+
+    const INFLUENCE = 120; // マウスが影響を及ぼす半径(px)
+
+    // --- アニメーションループ ------------------------------------------
+    const animate = () => {
+      // 背景塗りつぶし
+      // ctx.fillStyle = "rgba(10, 20, 40, 0.07)";
+      // ctx.fillRect(0, 0, width, height);
+
+      ctx.clearRect(0, 0, width, height);
+      ctx.fillStyle = "#0a1428";
+      ctx.fillRect(0, 0, width, height);
+
+      particles.forEach((p) => {
+        // マウス反発
+        if (pointer.active) {
+          const dx = p.x - pointer.x;
+          const dy = p.y - pointer.y;
+          const distSq = dx * dx + dy * dy;
+          if (distSq < INFLUENCE * INFLUENCE) {
+            const dist = Math.sqrt(distSq) || 1;
+            const force = ((INFLUENCE - dist) / INFLUENCE) * 0.6;
+            p.vx += (dx / dist) * force;
+            p.vy += (dy / dist) * force;
+          }
+        }
+
+        // 速度適用 & 減衰
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vx *= 0.98;
+        p.vy *= 0.98;
+
+        // 画面外ラップ
+        if (p.x < -p.size) p.x = width + p.size;
+        if (p.x > width + p.size) p.x = -p.size;
+        if (p.y < -p.size) p.y = height + p.size;
+        if (p.y > height + p.size) p.y = -p.size;
+
+        // 描画
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = `hsla(${p.hue}, 70%, 60%, 0.85)`;
+        ctx.fill();
+      });
+
+      requestAnimationFrame(animate);
+    };
+
+    animate();
+
+    // --- クリーンアップ ---------------------------------------------------
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("pointermove", handlePointerMove);
+      window.removeEventListener("pointerleave", handlePointerLeave);
+    };
+  }, [count]);
 
   return (
-    <div style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', zIndex: -10 }}>
-      {lines.map((line, index) => (
-        <motion.div
-          key={index}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: [0, 0.3, 0] }}
-          transition={{ duration: duration, repeat: Infinity, repeatDelay: (duration * numLines) / lines.length }}
-          style={{
-            position: 'absolute',
-            top: `${Math.min(line.startY, line.endY)}px`,
-            left: `${Math.min(line.startX, line.endX)}px`,
-            width: '2px',
-            height: `${Math.sqrt(Math.pow(line.endX - line.startX, 2) + Math.pow(line.endY - line.startY, 2))}px`,
-            backgroundColor: 'gray',
-            transformOrigin: 'top left',
-            transform: `rotate(${Math.atan2(line.endY - line.startY, line.endX - line.startX)}rad)`,
-          }}
-        />
-      ))}
-    </div>
+    <canvas
+      ref={canvasRef}
+      style={{
+        position: "fixed",
+        inset: 0,
+        width: "100vw",
+        height: "100vh",
+        zIndex: 0,
+        pointerEvents: "none",
+      }}
+    />
   );
 };
 

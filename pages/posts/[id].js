@@ -1,10 +1,7 @@
 // pages/articles/[id].js
-import Layout from '../../components/Layout';
-import Header from '../../components/Header';
 import { getAllArticleIds, getArticleData } from '../../lib/articles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendarDays } from '@fortawesome/free-solid-svg-icons';
-import React from 'react';
 import ReactMarkdown from 'react-markdown';
 
 export async function getStaticPaths() {
@@ -26,7 +23,10 @@ export async function getStaticProps({ params }) {
 
 export default function Post({ articleData }) {
     return (
+      <div>
+      {/* <BackgroundAnimation /> */}
       <div id="wrapper">
+        
         <section className="section" id="note-content">
           <div className="inner">
             <div className="section-title-block">
@@ -43,6 +43,7 @@ export default function Post({ articleData }) {
             </div>  
           </div>
       </section>
+      </div>
       </div>
     );
   }

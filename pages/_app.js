@@ -1,5 +1,7 @@
 import '../styles/globals.css';
 import Layout from '../components/Layout';
+import BackgroundAnimation from '../components/BackgroundAnimation';
+
 import 'aos/dist/aos.css';
 // import { useEffect } from 'react';
 import AOS from 'aos';
@@ -13,10 +15,12 @@ function MyApp({ Component, pageProps }) {
     });
   }, []);
   return (
+    <>
+    <BackgroundAnimation />
     <Layout>
       <Component {...pageProps} />
     </Layout>
-      
+    </>
   );
 }
 

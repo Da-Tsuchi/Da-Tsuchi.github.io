@@ -8,7 +8,7 @@ const Header = () => {
       <div className="inner">
         <nav className="footer-link">
           <ul>
-          <li><Link to="Profile" spy={true} smooth={true} duration={500} className="link">Profile</Link></li>
+          <li><Link to="profile" spy={true} smooth={true} duration={500} className="link">Profile</Link></li>
           <li><Link to="skill" spy={true} smooth={true} duration={500} className="link">Skill</Link></li>
           <li><Link to="product" spy={true} smooth={true} duration={500} className="link">Product</Link></li>
           <li><Link to="pub" spy={true} smooth={true} duration={500} className="link">Publication</Link></li>

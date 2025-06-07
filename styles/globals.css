@@ -7,13 +7,15 @@
 }
 
 body {
-  font-family: 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック体", YuGothic, 'メイリオ', Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
-  color: #333;
-  font-size: 15px;
-  line-height: 1.8;
+  background: #0a1428; /* Canvas と同じ紺 */
+  font-family: 'Segoe UI', 'Meiryo', 'Hiragino Sans', 'Helvetica Neue', Arial, sans-serif;
+  color: #f2f2f2;
+  font-size: clamp(14px, 2.5vw, 18px);
+  line-height: 1.6;
   letter-spacing: 0.8px;
   word-break: break-all;
   margin: 0;
+  /* background: transparent */
 }
 
 .main{
@@ -23,7 +25,7 @@ body {
 }
 
 a {
-  color: #333;
+  color: #b3b3b3;
   text-decoration: none;
 }
 
@@ -54,14 +56,14 @@ ul, li {
 }
 
 .typing-animation-container {
-  background-color: #f3f3f3;
-  /* position: relative; */
+  /* background-color: #0a1428; */
+  color: #f2f2f2;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   text-align: center;
-  z-index: -100; /* 背面に配置 */
+  z-index: 10; 
 }
 
 .inner {
@@ -78,12 +80,12 @@ ul, li {
 　ヘッダー
 ---------------------------------*/
 #gnav {
-  font-family: 'Oswald', sans-serif;
+  font-family:'Segoe UI', 'Meiryo', 'Hiragino Sans', 'Helvetica Neue', Arial, sans-serif;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  background-color: #fff; /* 背景色はお好みで */
+  /* background-color: #fff;  */
   box-shadow: 0px 6px 3px -3px rgba(0, 0, 0, 0.2); /* 影を追加 */
   z-index: 100; 
 }
@@ -103,7 +105,8 @@ ul, li {
 }
 #gnav li {
   font-weight: bold;
-  font-size: 20px;
+  font-size: clamp(14px, 2.5vw, 18px);
+  line-height: 1.6;
   padding: 0 20px;
 }
 
@@ -112,7 +115,7 @@ ul, li {
 }
 
 #gnav li a {
-  color: #333;
+  color: #f2f2f2;
   letter-spacing: -0.01em;
   /* margin-left: 12px; */
 }
@@ -133,12 +136,17 @@ ul, li {
   cursor: pointer;
 }
 
-.typingAnimationContainer{
+.link:hover, a:hover {
+  color: #facc15; /* ホバー時の色 */
+  /* text-decoration: underline; */
+}
+
+/* .typingAnimationContainer{
   position: relative;
   width: 100%;
   height: 100vh;
   z-index: 1;
-}
+} */
 /*--------------------------------
 　Section
 ---------------------------------*/
@@ -151,12 +159,12 @@ ul, li {
 
 .section .content-icon{
   text-align: center;
-
+  /* color: #1DA1F2; */
 }
 
 .content-icon a {
   size: 100px;
-  color: #444; /* ここに希望の色コードを設定 */
+  color: #93c5fd;         /* ホバー色 */
   margin-left: 10px; /* 左側のマージンを設定してアイコン間の間隔を調整 */
   margin-right: 10px; /* 右側のマージンを設定してアイコン間の間隔を調整 */
   font-size: 50px;
@@ -169,13 +177,13 @@ ul, li {
 
 
 .section .section-title {
-  font-family: 'Oswald', sans-serif;
+  /* font-family: 'Oswald', sans-serif; */
   letter-spacing: -0.01em;
   /* display: inline-block; */
   font-size: 56px;
   font-weight: bold;
   margin-bottom: 10px;
-  color: #444;
+  color:aliceblue;
   text-align: center;
   z-index: 100; /* 他の要素より前面に表示 */
 }
@@ -214,7 +222,7 @@ ul, li {
 .section .text .text-content {
   text-align: left; /* テキストコンテンツを左詰めに */
   max-width: 80%; /* テキストの最大幅を設定 */
-  font-weight: bold;
+  /* font-weight: bold; */
   text-decoration: none; /* リンクの下線を消す */
   font-size: 20px;
   /* color: inherit; リンクのテキスト色を継承 */
@@ -230,6 +238,91 @@ ul, li {
   width: 50%;
 }
 
+.timeline-section {
+  /* background-color: #0B0F29; 全体の背景色 (目標画像に近い濃い青) */
+  /* color: #EAEAEA;           基本の文字色 (明るいグレー) */
+  padding: 40px 20px 40px 50px; /* 上 右 下 左 のパディング (左側はタイムライン用にスペースを確保) */
+  font-family: 'Segoe UI', 'Meiryo', 'Hiragino Sans', 'Helvetica Neue', Arial, sans-serif; /* フォントファミリー */
+  position: relative; /* タイムラインの縦線のための基準位置 */
+}
+
+/* タイムラインの縦線 */
+.timeline-section::before {
+  content: '';
+  position: absolute;
+  left: 30px; /* 左端からの位置 (timeline-blobの中心に合わせる) */
+  top: 55px;  /* 開始位置の微調整 (最初のblobの上端に合わせるなど) */
+  bottom: 55px;/* 終了位置の微調整 */
+  width: 2px;   /* 線の太さ */
+  background-color: #9be216; /* 線の色 (目標画像に近い色) */
+  z-index: 0; /* 他の要素の背面に配置 */
+}
+
+.timeline-entry {
+  position: relative; /* timeline-blob の基準位置 */
+  padding-left: 35px; /* blobとテキストコンテンツ間のスペース確保 */
+  margin-bottom: 35px; /* 各エントリ間のスペース */
+}
+
+.timeline-entry:last-child {
+  margin-bottom: 0; /* 最後のエントリの下マージンを削除 */
+}
+
+.timeline-blob {
+  width: 12px;   /* 円形マーカーの幅 */
+  height: 12px;  /* 円形マーカーの高さ */
+  background-color: #9be216; 
+  /* 円形マーカーの色 (目標画像に近い明るい青紫) */
+  border-radius: 50%; /* 円形にする */
+  position: absolute;
+
+  left: -25px;
+  top: 10px;      /* テキストとの垂直位置を微調整 (日付のテキストに合わせるなど) */
+  z-index: 1;    /* 線の上に配置 */
+}
+
+.timeline-content {
+  /* .timeline-entry の padding-left でスペースが確保されているため、追加のpaddingは不要 */
+}
+
+.timeline-date {
+  font-size: 0.85em; /* 日付のフォントサイズ */
+  /* color: #8A93B9;    日付の文字色 (目標画像に近い落ち着いた青系グレー) */
+  margin-bottom: 4px; /* 日付とタイトルの間のスペース */
+  font-weight: 500;   /* やや太め (Normalより少し強調) */
+}
+
+.timeline-title {
+  /* font-size: 1.5em;  タイトルのフォントサイズ (目立たせる) */
+  font-weight: 700;  /* 太字 */
+  /* color: #FFFFFF;    タイトルの文字色 (白) */
+  margin-top: 0;     /* 上マージンリセット */
+  margin-bottom: 6px; /* タイトルと所属機関の間のスペース */
+}
+
+.timeline-institution {
+  font-size: 0.9em;  /* 所属機関のフォントサイズ */
+  /* color: #D0D8F9;    所属機関の文字色 (目標画像に近い明るい青系グレー) */
+  margin-bottom: 6px; /* 所属機関と説明文の間のスペース */
+  line-height: 1.4;
+}
+
+.timeline-description {
+  font-size: 0.9em;  /* 説明文のフォントサイズ */
+  /* color: #A1ACCB;    説明文の文字色 (目標画像に近い落ち着いた青系グレー) */
+  line-height: 1.5;
+  margin-bottom: 0;   /* 下マージンリセット */
+}
+
+/* リンクがある場合のスタイル (例) */
+.timeline-content a {
+  /* color: #82aaff; リンクの色 (明るい青) */
+  text-decoration: none;
+}
+
+.timeline-content a:hover {
+  /* text-decoration: underline; */
+}
 
 /*--------------------------------
 　PRODUCT
@@ -242,7 +335,7 @@ ul, li {
   width: 27%;
   margin-bottom: 50px;
   position: relative;
-  background-color: #fff;
+  /* background-color: #fff; */
 }
 
 #product .card-image {
@@ -264,6 +357,7 @@ ul, li {
 
 #product .card-caption-info {
   font-size: 15px;
+  text-align: left; 
 }
 
 #product .card-caption-url {
@@ -273,8 +367,8 @@ ul, li {
 #product .card-wrapper {
   display: flex;
   flex-wrap: wrap;
-  /* justify-content: center;  */
-  gap: 1px; /* カード間の余白を指定 */
+  justify-content: center;   /* ← コメントアウトを解除 */
+  gap: 24px;                 /* お好みの余白 */
 }
 
 #product .card-link {
@@ -312,7 +406,7 @@ ul, li {
   margin-bottom: 20px; /* カード間の間隔 */
   transition: transform 0.2s; /* ホバー時のアニメーション効果 */
   position: relative;
-  background-color: #fff;
+  /* background-color: #fff; */
 }
 
 #note .card:hover {
@@ -355,6 +449,12 @@ ul, li {
   font-size: 10px;
 }
 
+#note .note-list{
+  font-size: clamp(14px, 2.5vw, 18px);
+  line-height: 1.6;
+  text-align: center;
+}
+
 #note-content .article-image {
   padding-top: 50px;
   width: 20%;
@@ -363,12 +463,18 @@ ul, li {
   margin: 0 auto;
   object-fit: fill;
 }
+#note-content {
+  /* background-color: #282c34; */
+  padding: 50px 0;
+  /* max-width: 1000px; */
+  margin: 0 auto;
+}
 
 #note-content .article{
   text-align: center;
 }
 #note-content .article-content {
-  font-family: 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック体", YuGothic, 'メイリオ', Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+  /* font-family: 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック体", YuGothic, 'メイリオ', Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif; */
   text-align: left;
   font-size: 20px; 
 }
@@ -445,6 +551,7 @@ ul, li {
 }
 
 #skill .skill-section-title {
+  color: #b3b3b3;
   font-size: 30px;
   margin-top: 0%;
   margin-bottom: 0%;
@@ -477,14 +584,15 @@ ul, li {
   padding-top: 20px;
 }
 .awards-title {
+  
   text-align: center;
   margin-bottom: 30px;
   font-size: 24px;
-  color: #333;
+  /* color: #333; */
 }
 
 .awards-text {
-  font-family: 'ヒラギノ角ゴ Pro W3';
+  /* font-family: 'ヒラギノ角ゴ Pro W3'; */
   text-align: center;
 	display: block;
   font-weight: bold;
@@ -493,7 +601,8 @@ ul, li {
 
 .awards-list {
   list-style: none;
-  padding: 0;
+  padding: 0;;
+
   /* text-align: center; */
   display: inline-block;
 
@@ -502,7 +611,7 @@ ul, li {
 .awards-list li {
   margin-bottom: 15px;
   font-size: 20px;
-  color: #333;
+  color: #b3b3b3;
   text-align: left;
 }
 
@@ -522,7 +631,9 @@ ul, li {
 .pub-container {
   max-width: 800px;
   margin: 0 auto;
-  padding: 20px;
+  padding-left: 5vw;     /* 小画面でも左右に余裕 */
+  padding-right: 5vw;
+  box-sizing: border-box; /* パディング含めて幅を計算 */
 }
 
 #pub .section-title-area {
@@ -533,6 +644,7 @@ ul, li {
 font-size: 30px;
 margin-top: 0%;
 margin-bottom: 0%;
+color: #b3b3b3;
 
 }
 
@@ -543,11 +655,11 @@ margin-bottom: 0%;
   text-align: center;
   margin-bottom: 30px;
   font-size: 24px;
-  color: #333;
+  /* color: #333; */
 }
 
 .pub-text {
-  font-family: 'ヒラギノ角ゴ Pro W3';
+  /* font-family: 'ヒラギノ角ゴ Pro W3'; */
   text-align: center;
 	display: block;
   font-size: 30px;
@@ -565,8 +677,10 @@ margin-bottom: 0%;
 .pub-list li {
   margin-bottom: 15px;
   font-size: 20px;
-  color: #333;
+  color: #b3b3b3;
   text-align: left;
+  padding: 0 10px;
+  line-height: 1.5;
 }
 
 

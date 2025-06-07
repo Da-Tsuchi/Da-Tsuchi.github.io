@@ -9,7 +9,7 @@ const Header = () => {
     <nav id="gnav">
         <ul>
           <li><Link href="/">Home</Link></li>
-          <li><ScrollLink to="Profile" spy={true} smooth={true} duration={500} className="link">Profile</ScrollLink></li>
+          <li><ScrollLink to="profile" spy={true} smooth={true} duration={500} className="link">Profile</ScrollLink></li>
           <li><ScrollLink to="skill" spy={true} smooth={true} duration={500} className="link">Skill</ScrollLink></li>
           <li><ScrollLink to="product" spy={true} smooth={true} duration={500} className="link">Product</ScrollLink></li>
           <li><ScrollLink to="pub" spy={true} smooth={true} duration={500} className="link">Publication</ScrollLink></li>
