@@ -1,4 +1,4 @@
-import Section from '../layout/section';
+import Section from '../layout/Section';
 import SkillCategory from './SkillCategory';
 import { skillGroups } from '../../data/skills';
 

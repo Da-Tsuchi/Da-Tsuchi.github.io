@@ -1,4 +1,4 @@
-import Section from '../layout/section';
+import Section from '../layout/Section';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarDays } from '@fortawesome/free-solid-svg-icons';

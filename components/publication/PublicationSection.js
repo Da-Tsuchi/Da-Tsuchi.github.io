@@ -1,4 +1,4 @@
-import Section from '../layout/section';
+import Section from '../layout/Section';
 import { publications } from '../../data/publications';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFileLines } from '@fortawesome/free-solid-svg-icons';

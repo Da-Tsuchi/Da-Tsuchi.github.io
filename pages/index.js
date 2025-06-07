@@ -1,4 +1,4 @@
-import Section from '../components/layout/section';      
+import Section from '../layout/Section'; 
 import ProfileSection from '../components/profile/ProfileSection';
 import SkillSection from '../components/skill/SkillSection';
 import ProductGallery from '../components/product/ProductGallery';

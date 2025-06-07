@@ -1,4 +1,4 @@
-import Section from '../layout/section';
+import Section from '../layout/Section';
 import ProfileCard from './ProfileCard';
 import Timeline from '../layout/Timeline';
 import { profile } from '../../data/profile';
