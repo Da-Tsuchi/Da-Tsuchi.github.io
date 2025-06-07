@@ -22,10 +22,8 @@ export default function TypingAnimation() {
 
   return (
     <>
-      {/* 粒子レイヤー ― 常時表示だが zIndex 0 なので背面に */}
       <BackgroundAnimation />
 
-      {/* ヒーローセクション ― 通常フロー。打ち終われば透明化 */}
       <section
         className={`${styles["typing-animation-container"]} ${
           done ? styles.done : ""

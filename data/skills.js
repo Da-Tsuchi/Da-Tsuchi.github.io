@@ -103,7 +103,7 @@ export const skillGroups = [
       {
         name: 'Matplotlib',
         img: '/images/matplot.png',
-        desc: 'グラフ作成で利用',
+        desc: 'グラフ作成で使用',
       },
       {
         name: 'pandas',
@@ -119,12 +119,12 @@ export const skillGroups = [
       {
         name: 'Docker',
         img: '/images/docker.png',
-        desc: 'GPU用の仮想環境として使用',
+        desc: 'GPUで学習するときの仮想環境として使用',
       },
       {
         name: 'Slurm',
         img: '/images/slurm.png',
-        desc: '研究室クラスターのジョブ管理ツール',
+        desc: '大規模GPUクラスターのジョブ管理ツールとして使用',
       },
     ],
   },
