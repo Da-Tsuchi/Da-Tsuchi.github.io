@@ -281,9 +281,6 @@ ul, li {
   z-index: 1;    /* 線の上に配置 */
 }
 
-.timeline-content {
-  /* .timeline-entry の padding-left でスペースが確保されているため、追加のpaddingは不要 */
-}
 
 .timeline-date {
   font-size: 0.85em; /* 日付のフォントサイズ */
@@ -318,10 +315,6 @@ ul, li {
 .timeline-content a {
   /* color: #82aaff; リンクの色 (明るい青) */
   text-decoration: none;
-}
-
-.timeline-content a:hover {
-  /* text-decoration: underline; */
 }
 
 /*--------------------------------

@@ -59,7 +59,7 @@ export const skillGroups = [
       {
         name: 'Node.js',
         img: '/images/nodejs.png',
-        desc: 'AIずんだWEBおよび本ホームページをホスト',
+        desc: 'AIずんだWEBをホスト',
       },
     ],
   },
