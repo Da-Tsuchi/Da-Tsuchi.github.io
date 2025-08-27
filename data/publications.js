@@ -7,7 +7,6 @@ export const publications = {
       conf: '第30回 知能メカトロニクスワークショップ iMEC2025',
       id: 'IM4-1',
       date: '発表予定',
-      
     },
     {
       title:
