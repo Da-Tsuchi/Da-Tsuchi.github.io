@@ -6,7 +6,8 @@ export const publications = {
       authors: '土田 裕登，表 英輝，林 良和，上野 詩翔，加藤 邦人, et al.',
       conf: '第30回 知能メカトロニクスワークショップ iMEC2025',
       id: 'IM4-1',
-      date: '発表予定',
+      date: '2025-09-16',
+      url: 'https://imec.itlab.org/2025/',
     },
     {
       title:
